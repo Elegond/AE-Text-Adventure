@@ -24,9 +24,7 @@ public class Main {
 		for (Item_Usable item_Usable : Herbert.getInventar()) {
 			System.out.println(item_Usable.getName());
 		} 
-		//test
-		
-		// Test
+
 	}
 
 }
