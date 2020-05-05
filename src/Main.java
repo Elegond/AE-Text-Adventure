@@ -25,11 +25,6 @@ public class Main {
 			System.out.println(item_Usable.getName());
 		} 
 		
-<<<<<<< HEAD
-		// Hallo 
-		// Welt
-=======
->>>>>>> refs/remotes/origin/master
 	}
 
 }
