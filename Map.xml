@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-05-05T12:21:06.357Z" agent="5.0 (Windows)" etag="anRokMKriTyd-Mep0ZYo" version="13.0.7" type="github">
+<mxfile host="app.diagrams.net" modified="2020-05-05T12:24:13.957Z" agent="5.0 (Windows)" etag="LljVAV2mel1Lgr-8zAmC" version="13.0.7" type="github">
   <diagram id="07fea595-8f29-1299-0266-81d95cde20df" name="Page-1">
-    <mxGraphModel dx="1422" dy="-1740" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="1185" dy="-1863" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -8,16 +8,28 @@
           <mxGeometry x="190" y="2489.9966666666664" width="72" height="152" as="geometry" />
         </mxCell>
         <mxCell id="gB95SLwCQNndzW6SZIlA-657" value="&lt;h2&gt;Kueche&lt;/h2&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="600" y="2720" width="120" height="80" as="geometry" />
+          <mxGeometry x="640" y="2880" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="gB95SLwCQNndzW6SZIlA-659" value="&lt;h2&gt;Wohnzimmer&lt;/h2&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="760" y="2840" width="120" height="80" as="geometry" />
+          <mxGeometry x="840" y="3040" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="gB95SLwCQNndzW6SZIlA-660" value="&lt;h2&gt;Flur&lt;br&gt;&lt;/h2&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="360" y="2840" width="360" height="80" as="geometry" />
+          <mxGeometry x="400" y="3040" width="360" height="80" as="geometry" />
         </mxCell>
         <mxCell id="gB95SLwCQNndzW6SZIlA-662" value="&lt;h2&gt;Eingang&lt;/h2&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="200" y="2840" width="120" height="80" as="geometry" />
+          <mxGeometry x="200" y="3040" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gB95SLwCQNndzW6SZIlA-663" value="&lt;h2&gt;Abstell-kammer&lt;/h2&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="3200" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gB95SLwCQNndzW6SZIlA-665" value="&lt;h2&gt;Vorrats-kammer&lt;/h2&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="2880" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gB95SLwCQNndzW6SZIlA-666" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;exitX=0.384;exitY=-0.004;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="gB95SLwCQNndzW6SZIlA-660">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="540" y="3040" as="sourcePoint" />
+            <mxPoint x="538" y="2960" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
