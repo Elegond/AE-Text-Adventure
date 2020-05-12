@@ -11,25 +11,18 @@ public class Main {
 		System.out.println(WohnzimmerFlur.getKey());
 		System.out.println(WohnzimmerFlur.getAuf_Zu());
 		System.out.println(WohnzimmerFlur.getAbgeschlossen());
-
+		Item_Usable.usableInterface apfelint = new Item_Usable.usableInterface() {
+			
+			@Override
+			public void use(Item_Usable item) {
+				System.out.println(item.getName());
+				
+			}
+		};
 		List<Item_Usable> InventarHerbert = new ArrayList<Item_Usable>();
-		Item_Usable itm1 = new Item_Usable("Apfel", "Ein Leckerer Apfel", 2, true, new Item_Usable.usableInterface() {
-			
-			@Override
-			public void use(Item_Usable item) {
-				System.out.println(item.getName());
-				
-			}
-		});
+		Item_Usable itm1 = new Item_Usable("Apfel", "Ein Leckerer Apfel", 2, true, apfelint);
 		InventarHerbert.add(itm1);
-		InventarHerbert.add(new Item_Usable("Apfel2", "Ein Leckerer Apfel", 2, true, new Item_Usable.usableInterface() {
-			
-			@Override
-			public void use(Item_Usable item) {
-				System.out.println(item.getName());
-				
-			}
-		}));
+		InventarHerbert.add(new Item_Usable("Apfel2", "Ein Leckerer Apfel", 2, true, apfelint));
 		
 		InventarHerbert.add(new Item_Usable("Apfel3", "Ein Leckerer Apfel", 2, true, new Item_Usable.usableInterface() {
 			
