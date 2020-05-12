@@ -13,16 +13,38 @@ public class Main {
 		System.out.println(WohnzimmerFlur.getAbgeschlossen());
 
 		List<Item_Usable> InventarHerbert = new ArrayList<Item_Usable>();
-		Item_Usable itm1 = new Item_Usable("Apfel", "Ein Leckerer Apfel", 2, true);
+		Item_Usable itm1 = new Item_Usable("Apfel", "Ein Leckerer Apfel", 2, true, new Item_Usable.useable() {
+			
+			@Override
+			public void use() {
+				System.out.println("Apfel");
+				
+			}
+		});
 		InventarHerbert.add(itm1);
-		InventarHerbert.add(new Item_Usable("Apfel2", "Ein Leckerer Apfel", 2, true));
-		InventarHerbert.add(new Item_Usable("Apfel3", "Ein Leckerer Apfel", 2, true));
+		InventarHerbert.add(new Item_Usable("Apfel2", "Ein Leckerer Apfel", 2, true, new Item_Usable.useable() {
+			
+			@Override
+			public void use() {
+				System.out.println("Apfel2");
+				
+			}
+		}));
+		
+		InventarHerbert.add(new Item_Usable("Apfel3", "Ein Leckerer Apfel", 2, true, new Item_Usable.useable() {
+			
+			@Override
+			public void use() {
+				System.out.println("Apfel3");
+				
+			}
+		}));
 		Person Herbert = new Person("Herbert", false, InventarHerbert);
 		
 		System.out.println(Herbert.getName());
 		System.out.println(Herbert.getGeschlecht());
 		for (Item_Usable item_Usable : Herbert.getInventar()) {
-			System.out.println(item_Usable.getName());
+			item_Usable.use();
 		} 
 
 	}
