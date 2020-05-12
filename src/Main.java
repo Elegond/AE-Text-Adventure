@@ -13,7 +13,7 @@ public class Main {
 		System.out.println(WohnzimmerFlur.getAbgeschlossen());
 
 		List<Item_Usable> InventarHerbert = new ArrayList<Item_Usable>();
-		Item_Usable itm1 = new Item_Usable("Apfel", "Ein Leckerer Apfel", 2, true, new Item_Usable.useable() {
+		Item_Usable itm1 = new Item_Usable("Apfel", "Ein Leckerer Apfel", 2, true, new Item_Usable.usableInterface() {
 			
 			@Override
 			public void use() {
@@ -22,7 +22,7 @@ public class Main {
 			}
 		});
 		InventarHerbert.add(itm1);
-		InventarHerbert.add(new Item_Usable("Apfel2", "Ein Leckerer Apfel", 2, true, new Item_Usable.useable() {
+		InventarHerbert.add(new Item_Usable("Apfel2", "Ein Leckerer Apfel", 2, true, new Item_Usable.usableInterface() {
 			
 			@Override
 			public void use() {
@@ -31,7 +31,7 @@ public class Main {
 			}
 		}));
 		
-		InventarHerbert.add(new Item_Usable("Apfel3", "Ein Leckerer Apfel", 2, true, new Item_Usable.useable() {
+		InventarHerbert.add(new Item_Usable("Apfel3", "Ein Leckerer Apfel", 2, true, new Item_Usable.usableInterface() {
 			
 			@Override
 			public void use() {

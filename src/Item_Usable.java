@@ -2,14 +2,14 @@
 public class Item_Usable extends Item {
 
 	Boolean stapelbar;
-	useable u;
-	public Item_Usable(String name, String beschreibung, int gewicht, Boolean stapelbar, useable u) {
+	usableInterface u;
+	public Item_Usable(String name, String beschreibung, int gewicht, Boolean stapelbar, usableInterface u) {
 		super(name, beschreibung, gewicht);
 		this.stapelbar = stapelbar;
 		this.u = u;
 	}
 
-	public interface useable{
+	public interface usableInterface{
 		void use();
 	}
 	public void use() {
