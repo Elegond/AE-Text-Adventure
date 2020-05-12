@@ -10,10 +10,10 @@ public class Item_Usable extends Item {
 	}
 
 	public interface usableInterface{
-		void use();
+		void use(Item_Usable item);
 	}
 	public void use() {
-		u.use();
+		u.use(this);
 	}
 	
 }

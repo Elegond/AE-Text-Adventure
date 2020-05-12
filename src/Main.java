@@ -16,8 +16,8 @@ public class Main {
 		Item_Usable itm1 = new Item_Usable("Apfel", "Ein Leckerer Apfel", 2, true, new Item_Usable.usableInterface() {
 			
 			@Override
-			public void use() {
-				System.out.println("Apfel");
+			public void use(Item_Usable item) {
+				System.out.println(item.getName());
 				
 			}
 		});
@@ -25,8 +25,8 @@ public class Main {
 		InventarHerbert.add(new Item_Usable("Apfel2", "Ein Leckerer Apfel", 2, true, new Item_Usable.usableInterface() {
 			
 			@Override
-			public void use() {
-				System.out.println("Apfel2");
+			public void use(Item_Usable item) {
+				System.out.println(item.getName());
 				
 			}
 		}));
@@ -34,8 +34,8 @@ public class Main {
 		InventarHerbert.add(new Item_Usable("Apfel3", "Ein Leckerer Apfel", 2, true, new Item_Usable.usableInterface() {
 			
 			@Override
-			public void use() {
-				System.out.println("Apfel3");
+			public void use(Item_Usable item) {
+				System.out.println(item.getName());
 				
 			}
 		}));
