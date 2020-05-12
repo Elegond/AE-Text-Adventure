@@ -33,7 +33,9 @@ public class Main {
 			}
 		}));
 		Person Herbert = new Person("Herbert", false, InventarHerbert);
-		
+		Herbert.getInventar().add(itm1);
+		Herbert.getInventar().add(itm1);
+		Herbert.getInventar().add(itm1);
 		System.out.println(Herbert.getName());
 		System.out.println(Herbert.getGeschlecht());
 		for (Item_Usable item_Usable : Herbert.getInventar()) {
