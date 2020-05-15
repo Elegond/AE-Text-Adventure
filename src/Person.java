@@ -1,9 +1,9 @@
 import java.util.List;
 
 public class Person {
-	private String name;
-	private Boolean geschlecht;
-	private List<Item_Usable> inventar;
+	protected String name;
+	protected Boolean geschlecht;
+	protected List<Item_Usable> inventar;
 
 	public Person(String name, Boolean geschlecht, List<Item_Usable> inventar) {
 		this.name = name;
