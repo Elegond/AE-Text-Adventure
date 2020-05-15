@@ -1,17 +1,15 @@
 import java.util.List;
 
 public class NPC extends Person{
-	private String[] texte;
+	private String[] texts;
 	
-	public NPC (String name, Boolean geschlecht, List<Item_Usable> inventar, String[] textinhalte) {
-		super(name, geschlecht, inventar);
-		//for (int i = 0; i < textinhalte.length; i++) {
-		texte = textinhalte;
-		//}
+	public NPC (String name, Boolean gender, List<Item_Usable> inventory, String[] texts) {
+		super(name, gender, inventory);
+		this.texts = texts;
 	}
 
-	public String[] getTexte() {
-		return texte;
+	public String[] getTexts() {
+		return texts;
 	}
 	
 }

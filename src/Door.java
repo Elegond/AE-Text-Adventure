@@ -2,31 +2,31 @@
 public class Door {
 	private String[] name = new String[2];
 	private String key;
-	private Boolean auf_Zu;
-	private Boolean abgeschlossen;
+	private Boolean open_close;
+	private Boolean locked;
 
-	public Door(String bezeichnung0, String bezeichnung1, String schluessel, Boolean offen, Boolean locked) {
-		name[0] = bezeichnung0;
-		name[1] = bezeichnung1;
-		key = schluessel;
-		auf_Zu = offen;
-		abgeschlossen = locked;		
+	public Door(String name0, String name1, String key, Boolean open_close, Boolean locked) {
+		this.name[0] = name0;
+		this.name[1] = name1;
+		this.key = key;
+		this.open_close = open_close;
+		this.locked = locked;		
 	}
 
-	public Door(String bezeichnung0, String bezeichnung1) {
-		name[0] = bezeichnung0;
-		name[1] = bezeichnung1;
-		key = null;
-		auf_Zu = true;
-		abgeschlossen = false;
+	public Door(String name0, String name1) {
+		this.name[0] = name0;
+		this.name[1] = name1;
+		this.key = null;
+		this.open_close = true;
+		this.locked = false;
 	}
 
-	public Door(String bezeichnung0, String bezeichnung1, Boolean offen) {
-		name[0] = bezeichnung0;
-		name[1] = bezeichnung1;
+	public Door(String name0, String name1, Boolean open_close) {
+		name[0] = name0;
+		name[1] = name1;
 		key = null;
-		auf_Zu = offen;
-		abgeschlossen = false;
+		this.open_close = open_close;
+		this.locked = false;
 	}
 
 	public String[] getName() {
@@ -37,20 +37,20 @@ public class Door {
 		return key;
 	}
 
-	public Boolean getAuf_Zu() {
-		return auf_Zu;
+	public Boolean getOpen_close() {
+		return open_close;
 	}
 
-	public void setAuf_Zu(Boolean auf_Zu) {
-		this.auf_Zu = auf_Zu;
+	public void setOpen_close(Boolean open_close) {
+		this.open_close = open_close;
 	}
 
-	public Boolean getAbgeschlossen() {
-		return abgeschlossen;
+	public Boolean getLocked() {
+		return locked;
 	}
 
-	public void setAbgeschlossen(Boolean abgeschlossen) {
-		this.abgeschlossen = abgeschlossen;
+	public void setLocked(Boolean locked) {
+		this.locked = locked;
 	}
 	
 }

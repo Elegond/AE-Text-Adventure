@@ -2,31 +2,31 @@ import java.util.List;
 
 public class Person {
 	protected String name;
-	protected Boolean geschlecht;
-	protected List<Item_Usable> inventar;
+	protected Boolean gender;
+	protected List<Item_Usable> inventory;
 
-	public Person(String name, Boolean geschlecht, List<Item_Usable> inventar) {
+	public Person(String name, Boolean gender, List<Item_Usable> inventory) {
 		this.name = name;
-		this.geschlecht = geschlecht;
-		this.inventar = inventar;
+		this.gender = gender;
+		this.inventory = inventory;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public Boolean getGeschlecht() {
-		return geschlecht;
+	public Boolean getGender() {
+		return gender;
 	}
 
-	public List<Item_Usable> getInventar() {
-		return inventar;
+	public List<Item_Usable> getInventory() {
+		return inventory;
 	}
 
 	public void pop_Inventar(Item_Usable i) {
-		inventar.remove(i);
+		inventory.remove(i);
 	}
 	public void push_Inventar(Item_Usable i) {
-		inventar.add(i);
+		inventory.add(i);
 	}
 }

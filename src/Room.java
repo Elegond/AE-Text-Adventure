@@ -4,13 +4,13 @@ public class Room {
 
 	private String roomName;
 	private List<Door> doors;
-	private List<Item> inhalt;
+	private List<Item> inventoy;
 	private List<NPC> npcs;
 
-	public Room(String roomName, List<Door> doors, List<Item> inhalt, List<NPC> npcs) {
+	public Room(String roomName, List<Door> doors, List<Item> inventoy, List<NPC> npcs) {
 		this.roomName = roomName;
 		this.doors = doors;
-		this.inhalt = inhalt;
+		this.inventoy = inventoy;
 		this.npcs = npcs;
 
 	}
@@ -23,8 +23,8 @@ public class Room {
 		return doors;
 	}
 
-	public List<Item> getInhalt() {
-		return inhalt;
+	public List<Item> getInventoy() {
+		return inventoy;
 	}
 
 	public List<NPC> getNpcs() {
@@ -39,12 +39,12 @@ public class Room {
 		npcs.add(add_npc);
 	}
 
-	public void pop_Inhalt(Item i) {
-		inhalt.remove(i);
+	public void pop_Inventoy(Item i) {
+		inventoy.remove(i);
 	}
 
-	public void push_Inhalt(Item i) {
-		inhalt.add(i);
+	public void push_Inventoy(Item i) {
+		inventoy.add(i);
 	}
 
 }

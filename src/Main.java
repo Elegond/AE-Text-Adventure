@@ -9,8 +9,8 @@ public class Main {
 		System.out.println(WohnzimmerFlur.getName()[0]);
 		System.out.println(WohnzimmerFlur.getName()[1]);
 		System.out.println(WohnzimmerFlur.getKey());
-		System.out.println(WohnzimmerFlur.getAuf_Zu());
-		System.out.println(WohnzimmerFlur.getAbgeschlossen());
+		System.out.println(WohnzimmerFlur.getOpen_close());
+		System.out.println(WohnzimmerFlur.getLocked());
 		List<Door> WohnzimmerDoors = new ArrayList<Door>();
 		WohnzimmerDoors.add(WohnzimmerFlur);
 		Room Wohnzimmer = new Room("Wohnzimmer", WohnzimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
@@ -20,7 +20,7 @@ public class Main {
 			public void use(Item_Usable item, Person p) {
 				System.out.println(item.getName());
 				if(p instanceof Player) {
-					((Player) p).setLeben(((Player) p).getLeben()+1);
+					((Player) p).setLife(((Player) p).getLife()+1);
 				}
 				
 			}
@@ -36,8 +36,8 @@ public class Main {
 			public void use(Item_Usable item,Person p) {
 				System.out.println(item.getName());
 				if(p instanceof Player) {
-					if (((Player) p).getAusdauer()>2) {
-						((Player) p).setAusdauer(((Player) p).getAusdauer()-2);
+					if (((Player) p).getEndurance()>2) {
+						((Player) p).setEndurance(((Player) p).getEndurance()-2);
 						System.out.println("Axt benutzt");
 					}else {
 						System.out.println("Axt kann nicht benutzt werden benutzt");
@@ -47,16 +47,16 @@ public class Main {
 			}
 		}));
 		Player Herbert = new Player("Herbert", true, InventarHerbert,10,10,10,Wohnzimmer);
-		Herbert.getInventar().add(itm1);
-		Herbert.getInventar().add(itm1);
-		Herbert.getInventar().add(itm1);
+		Herbert.getInventory().add(itm1);
+		Herbert.getInventory().add(itm1);
+		Herbert.getInventory().add(itm1);
 		System.out.println(Herbert.getName());
-		System.out.println(Herbert.getGeschlecht());
-		System.out.println(Herbert.getLeben());
-		for (Item_Usable item_Usable : Herbert.getInventar()) {
+		System.out.println(Herbert.getGender());
+		System.out.println(Herbert.getLife());
+		for (Item_Usable item_Usable : Herbert.getInventory()) {
 			item_Usable.use(Herbert);
 		} 
-		System.out.println(Herbert.getLeben());
+		System.out.println(Herbert.getLife());
 	}
 
 }

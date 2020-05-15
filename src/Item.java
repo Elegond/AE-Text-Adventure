@@ -1,11 +1,11 @@
 
 public class Item {
-	private String name, beschreibung;
-	int gewicht;
+	protected String name, description;
+	protected int weight;
 
-	public Item(String name, String beschreibung, int gewicht) {
-		this.beschreibung = beschreibung;
-		this.gewicht = gewicht;
+	public Item(String name, String description, int weight) {
+		this.description = description;
+		this.weight = weight;
 		this.name = name;
 	}
 
@@ -13,14 +13,14 @@ public class Item {
 		return name;
 	}
 
-	public String getBeschreibung() {
-		return beschreibung;
+	public String getDescription() {
+		return description;
 	}
 
-	public int getGewicht() {
-		return gewicht;
+	public int getWeight() {
+		return weight;
 	}
-	public String untersuchen() {
+	public String explore() {
 		// TODO: schreiben der Funktion
 		return "";
 	}
