@@ -19,6 +19,9 @@ public class Main {
 			@Override
 			public void use(Item_Usable item, Person p) {
 				System.out.println(item.getName());
+				if(p instanceof Player) {
+					((Player) p).setLeben(((Player) p).getLeben()+5);
+				}
 				
 			}
 		};
@@ -41,10 +44,11 @@ public class Main {
 		Herbert.getInventar().add(itm1);
 		System.out.println(Herbert.getName());
 		System.out.println(Herbert.getGeschlecht());
+		System.out.println(Herbert.getLeben());
 		for (Item_Usable item_Usable : Herbert.getInventar()) {
 			item_Usable.use(Herbert);
 		} 
-
+		System.out.println(Herbert.getLeben());
 	}
 
 }
