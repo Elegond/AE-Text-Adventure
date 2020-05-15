@@ -14,7 +14,7 @@ public class Main {
 		Item_Usable.usableInterface apfelint = new Item_Usable.usableInterface() {
 			
 			@Override
-			public void use(Item_Usable item) {
+			public void use(Item_Usable item, Person p) {
 				System.out.println(item.getName());
 				
 			}
@@ -27,7 +27,7 @@ public class Main {
 		InventarHerbert.add(new Item_Usable("Apfel3", "Ein Leckerer Apfel", 2, true, new Item_Usable.usableInterface() {
 			
 			@Override
-			public void use(Item_Usable item) {
+			public void use(Item_Usable item,Person p) {
 				System.out.println(item.getName());
 				
 			}
@@ -39,7 +39,7 @@ public class Main {
 		System.out.println(Herbert.getName());
 		System.out.println(Herbert.getGeschlecht());
 		for (Item_Usable item_Usable : Herbert.getInventar()) {
-			item_Usable.use();
+			item_Usable.use(Herbert);
 		} 
 
 	}
