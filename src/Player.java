@@ -6,8 +6,8 @@ public class Player extends Person{
 	private Integer leben;
 	private Room position;
 	
-	public Player (String NamePerson, Boolean MWohneD, List<Item_Usable> Item,Integer ausdauer, Integer kraft, Integer leben, Room position) {
-		super(NamePerson,  MWohneD, Item);
+	public Player (String NamePerson, Boolean geschlecht, List<Item_Usable> Item,Integer ausdauer, Integer kraft, Integer leben, Room position) {
+		super(NamePerson,  geschlecht, Item);
 		this.ausdauer = ausdauer;
 		this.kraft = kraft;
 		this.leben = leben;

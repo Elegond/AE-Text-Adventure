@@ -11,6 +11,9 @@ public class Main {
 		System.out.println(WohnzimmerFlur.getKey());
 		System.out.println(WohnzimmerFlur.getAuf_Zu());
 		System.out.println(WohnzimmerFlur.getAbgeschlossen());
+		List<Door> WohnzimmerDoors = new ArrayList<Door>();
+		WohnzimmerDoors.add(WohnzimmerFlur);
+		Room Wohnzimmer = new Room("Wohnzimmer", WohnzimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
 		Item_Usable.usableInterface apfelint = new Item_Usable.usableInterface() {
 			
 			@Override
@@ -32,7 +35,7 @@ public class Main {
 				
 			}
 		}));
-		Person Herbert = new Person("Herbert", false, InventarHerbert);
+		Player Herbert = new Player("Herbert", true, InventarHerbert,10,10,10,Wohnzimmer);
 		Herbert.getInventar().add(itm1);
 		Herbert.getInventar().add(itm1);
 		Herbert.getInventar().add(itm1);
