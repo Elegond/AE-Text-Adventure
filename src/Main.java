@@ -20,7 +20,7 @@ public class Main {
 			public void use(Item_Usable item, Person p) {
 				System.out.println(item.getName());
 				if(p instanceof Player) {
-					((Player) p).setLeben(((Player) p).getLeben()+5);
+					((Player) p).setLeben(((Player) p).getLeben()+1);
 				}
 				
 			}
@@ -30,11 +30,19 @@ public class Main {
 		InventarHerbert.add(itm1);
 		InventarHerbert.add(new Item_Usable("Apfel2", "Ein Leckerer Apfel", 2, true, apfelint));
 		
-		InventarHerbert.add(new Item_Usable("Apfel3", "Ein Leckerer Apfel", 2, true, new Item_Usable.usableInterface() {
+		InventarHerbert.add(new Item_Usable("Axt", "Ein Tötliche Axt", 5, false, new Item_Usable.usableInterface() {
 			
 			@Override
 			public void use(Item_Usable item,Person p) {
 				System.out.println(item.getName());
+				if(p instanceof Player) {
+					if (((Player) p).getAusdauer()>2) {
+						((Player) p).setAusdauer(((Player) p).getAusdauer()-2);
+						System.out.println("Axt benutzt");
+					}else {
+						System.out.println("Axt kann nicht benutzt werden benutzt");
+					}
+				}
 				
 			}
 		}));
