@@ -323,42 +323,46 @@ public class Main {
 								System.out.println("\n" + i.getName() + "\n" + i.getDescription());
 								if (i instanceof Item_Static) {
 									iteminv: while (true) {
-										n=1;
+										n = 1;
 										System.out.println("0. Back");
-										for (Item ite : ((Item_Static)i).getContent()) {
-											if (i instanceof Item_Usable) {
-											System.out.println(n+". "+ite.getName() + "  -  "+ite.getDescription());
-											n++;
-											}else {
-												System.out.println("   "+ite.getName() + "  -  "+ite.getDescription());
+										for (Item ite : ((Item_Static) i).getContent()) {
+											if (ite instanceof Item_Usable) {
+												System.out.println(
+														n + ". " + ite.getName() + "\n" + ite.getDescription() + "\n");
+												n++;
+											} else {
+												System.out.println(
+														"   " + ite.getName() + "\n" + ite.getDescription() + "\n");
 											}
 										}
 										System.out.print("\nAuswahl: ");
 										auswahl = s.nextInt();
-										if (auswahl==0)
+										if (auswahl == 0)
 											break iteminv;
-										n=1;
-										b1: for (Item ite : ((Item_Static)i).getContent()) {
-											if (i instanceof Item_Usable) {
-												if(auswahl==n) {
-													System.out.println(n+". "+ite.getName() + "\n\nBescheibung:  \n"+ite.getDescription()+"\n\nGewicht: "+ite.getWeight()+"\n\n\nKraft: "+ p.getStrength() + "/" + p.getMaxStrength());
-													System.out.println("1. Aufnehmen");
+										n = 1;
+										b1: for (Item ite : ((Item_Static) i).getContent()) {
+											if (ite instanceof Item_Usable) {
+												if (auswahl == n) {
+													System.out.println("\n\n--- " + ite.getName() + " ---\n\nBescheibung:  \n"
+															+ ite.getDescription() + "\n\nGewicht: " + ite.getWeight()
+															+ "\n\n\nKraft: " + p.getStrength() + "/"
+															+ p.getMaxStrength());
+
 													System.out.println("0. Back");
-													System.out.println("\nAuswahl: ");
+													System.out.println("1. Aufnehmen");
+													System.out.print("\nAuswahl: ");
 													auswahl = s.nextInt();
-													if (auswahl==0)
+													if (auswahl == 0)
 														break iteminv;
-													else if (auswahl==1) {
-														((Item_Usable)ite).pickup(((Item_Static)i));
+													else if (auswahl == 1) {
+														((Item_Usable) ite).pickup(((Item_Static) i));
 													}
 													break b1;
 												}
-											n++;
+												n++;
 											}
 										}
-										
-										
-										
+
 									}
 								}
 								break umschauen;
@@ -391,7 +395,7 @@ public class Main {
 				}
 				int n = 1;
 				for (Item_Usable item_Usable : p.inventory) {
-					System.out.println(n + ". " + item_Usable.getName() + "  -  " + item_Usable.getDescription());
+					System.out.println(n + ". " + item_Usable.getName() + "\n" + item_Usable.getDescription()+"\n");
 					n++;
 				}
 				System.out.print("\nAuswahl: ");
@@ -402,7 +406,7 @@ public class Main {
 					for (Item_Usable item_Usable : p.inventory) {
 						if (inv == auswahl) {
 							System.out.println(
-									auswahl + ". " + item_Usable.getName() + "  -  " + item_Usable.getDescription());
+									auswahl + ". " + item_Usable.getName() + "\n" + item_Usable.getDescription()+"\n");
 
 						}
 						auswahl++;
