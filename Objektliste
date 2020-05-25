@@ -6,4 +6,9 @@ FlurEG
 -Flurschrank(static, Inhalt: Apfel(usable))
 
 Kueche
--Kuechenschrank (static, Inhalt: Abstellkammerschluessel(usable), 
+-Kuechenschrank(static, Inhalt: Abstellkammerschluessel(usable), MamaHandy(usable))
+-Kuehlschrank(static, Inhalt: Milch(usable), Apfel(usable))
+
+Wohnzimmer
+-Couch(static, Inhalt: SofaPizza(static), 5EuroSchein(usable))
+- 
