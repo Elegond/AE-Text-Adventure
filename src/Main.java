@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.io.*;
 import java.awt.GraphicsEnvironment;
+import java.beans.FeatureDescriptor;
 import java.net.URISyntaxException;
 
 public class Main {
@@ -90,8 +91,8 @@ public class Main {
 				schokoladenInterface);
 
 		// Keys
-		Item_Usable arbeitszimmerKey = new Item_Usable("Arbeitszimmerschlüssel", "Der Schlüssel für das Arbeitszimmer", 1,
-				false, noUseInt);
+		Item_Usable arbeitszimmerKey = new Item_Usable("Arbeitszimmerschlüssel", "Der Schlüssel für das Arbeitszimmer",
+				1, false, noUseInt);
 		Item_Usable abstellkammerKey = new Item_Usable("Abstellkammerschlüssel", "Der Schlüssel für die Abstellkammer",
 				1, false, noUseInt);
 		Item_Usable vorratskammerkey = new Item_Usable("Vorratskammerschlüssel", "Der schlüssel für die Vorratskammer",
@@ -108,70 +109,52 @@ public class Main {
 				"3 Tage alte Liferando Blumenkohlpizza mit Pesto, Zucchini und Rotkohl\nTötlich für Jedes Kind", 5);
 		Item schuh = new Item("Schuh", "Alte durchgelaufene Schuhe mit Löchern", 3);
 		Item spielsachen = new Item("Spielsachen", "Benutzte Spielsachen", 1);
-		Item bild = new Item("Bild", "Ein Bild von etwas unbeschreibbaren",2);
-		
-		
+		Item bild = new Item("Bild", "Ein Bild von etwas unbeschreibbaren", 2);
+
 		// Item_static
 
 		Item_Static schuschrank = new Item_Static("Schuhschrank", "Ein Schuhschrank", 60,
 				new ArrayList<Item>(Arrays.asList(schuh, schuh, schuh)));
-		
+
 		Item_Static flurschrank = new Item_Static("Flurschrank", "Ein Flurschrank", 30,
 				new ArrayList<Item>(Arrays.asList(apfel)));
-		Item_Static telefontisch = new Item_Static("Telefontisch", "Ein Telefontisch", 25,
-				new ArrayList<Item>(Arrays.asList(new Item("Taschentücher","Eine Packung Taschentücher für den Personlichengebrauch",1))));
-		
+		Item_Static telefontisch = new Item_Static("Telefontisch", "Ein Telefontisch", 25, new ArrayList<Item>(Arrays
+				.asList(new Item("Taschentücher", "Eine Packung Taschentücher für den Personlichengebrauch", 1))));
+
 		Item_Static küchenschrank = new Item_Static("Küchenschrank", "Ein Küchenschrank", 35,
 				new ArrayList<Item>(Arrays.asList(abstellkammerKey, handy)));
 		Item_Static kühlschrank = new Item_Static("Kühlschrank",
 				"Ein Samsung RS67N8211B1 Kühl-Gefrierkombinations Kühlschrank", 75,
-				new ArrayList<Item>(Arrays.asList(milch,milch,milch,milch, apfel)));
-		
+				new ArrayList<Item>(Arrays.asList(milch, milch, milch, milch, apfel)));
 
 		Item_Static couch = new Item_Static("Couch", "Eine unbequeme Couch", 80,
-				new ArrayList<Item>(Arrays.asList(pizza,geld)));
-		Item_Static wohnzimmerschrank = new Item_Static("Wohnzimmerschrank", "Ein Wohnzimmerschrank\nGebaut mit Honduras Rosenholz das im östlichen Südamerika gefellt wurde", 85,
+				new ArrayList<Item>(Arrays.asList(pizza, geld)));
+		Item_Static wohnzimmerschrank = new Item_Static("Wohnzimmerschrank",
+				"Ein Wohnzimmerschrank\nGebaut mit Honduras Rosenholz das im östlichen Südamerika gefellt wurde", 85,
 				new ArrayList<Item>(Arrays.asList()));
-		Item_Static wohnzimmertisch = new Item_Static("Wohnzimmertisch", "Ein Wohnzimmertisch\nEr hat 4 Beine, 4 Ecken und besteht aus Cocobolo Holz", 25,
+		Item_Static wohnzimmertisch = new Item_Static("Wohnzimmertisch",
+				"Ein Wohnzimmertisch\nEr hat 4 Beine, 4 Ecken und besteht aus Cocobolo Holz", 25,
 				new ArrayList<Item>(Arrays.asList()));
 
 		Item_Static vorratskammerregal = new Item_Static("Vorratskammerregal", "Ein Vorratskammerregal", 35,
 				new ArrayList<Item>(Arrays.asList(schokolade)));
-		
+
 		Item_Static abstellkammerregal = new Item_Static("Abstellkammerregal", "Ein Abstellkammerregal", 45,
-				new ArrayList<Item>(Arrays.asList(apfel,apfel,apfel,apfel,apfel)));
+				new ArrayList<Item>(Arrays.asList(apfel, apfel, apfel, apfel, apfel)));
 
 		Item_Static badezimmerschrank = new Item_Static("Badezimmerschrank", "Ein Badezimmerschrank", 55,
 				new ArrayList<Item>(Arrays.asList(new Item("Badezimmersachen", "Sachen die im Badezimmer sind", 4))));
-		
+
 		Item_Static kinderbett = new Item_Static("Kinderbett", "Ein Kinderbett aus Holz", 45,
-				new ArrayList<Item>(Arrays.asList(new Item("Bettwäsche","Bettwäsche mit Fortnite Design", 2))));
-		
-		
+				new ArrayList<Item>(Arrays.asList(new Item("Bettwäsche", "Bettwäsche mit Fortnite Design", 2))));
+
 		Item_Static bett = new Item_Static("Bett", "Ein stählernes Doppelbett aus Stahl", 75,
-				new ArrayList<Item>(Arrays.asList(new Item("Bettwäsche","Bettwäsche mit Star Wars Design und verdächtigen weißen Flecken", 2),arbeitszimmerKey)));
-		
+				new ArrayList<Item>(Arrays.asList(
+						new Item("Bettwäsche", "Bettwäsche mit Star Wars Design und verdächtigen weißen Flecken", 2),
+						arbeitszimmerKey)));
+
 		Item_Static arbeitszimmerregal = new Item_Static("Arbeitszimmerregal", "Arbeitszimmerregal", 55,
 				new ArrayList<Item>(Arrays.asList(vorratskammerkey)));
-		
-		
-		
-		new Item_Usable("Axt", "Ein Tötliche Axt", 5, false, new Item_Usable.usableInterface() {
-
-			@Override
-			public void use(Item_Usable item) {
-				System.out.println(item.getName());
-				if (p instanceof Player) {
-					if (Main.p.getStamina() > 2) {
-						Main.p.setStamina(Main.p.getStamina() - 2);
-						System.out.println("Axt benutzt");
-					} else {
-						System.out.println("Axt kann nicht benutzt werden benutzt");
-					}
-				}
-
-			}
-		});
 
 		// Türen ertstellen
 		Door WohnzimmerFlurEG = new Door("Wohnzimmertür", "Flurtür", true);
@@ -223,17 +206,28 @@ public class Main {
 		ArbeitszimmerDoors.add(ArbeitszimmerFlur1S);
 
 		// Räume erstellen
-		Room Wohnzimmer = new Room("Wohnzimmer", WohnzimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
-		Room FlurEG = new Room("Flur EG", FlurEGDoors, new ArrayList<Item>(), new ArrayList<NPC>());
-		Room Küche = new Room("Küche", KücheDoors, new ArrayList<Item>(), new ArrayList<NPC>());
-		Room Eingang = new Room("Eingang", EingangDoors, new ArrayList<Item>(), new ArrayList<NPC>());
-		Room Abstellkammer = new Room("Abstellkammer", AbstellkammerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
-		Room Vorratskammer = new Room("Vorratskammer", VorratskammerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
-		Room Bad = new Room("Bad", BadDoors, new ArrayList<Item>(), new ArrayList<NPC>());
-		Room Flur1S = new Room("Flur1S", Flur1SDoors, new ArrayList<Item>(), new ArrayList<NPC>());
-		Room Arbeitszimmer = new Room("Arbeitszimmer", ArbeitszimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
-		Room Kinderzimmer = new Room("Kinderzimmer", KinderzimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
-		Room Schlafzimmer = new Room("Schlafzimmer", SchlafzimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
+		Room Wohnzimmer = new Room("Wohnzimmer", WohnzimmerDoors,
+				new ArrayList<Item>(Arrays.asList(couch, tv, wohnzimmerschrank, wohnzimmertisch)),
+				new ArrayList<NPC>());
+		Room FlurEG = new Room("Flur EG", FlurEGDoors, new ArrayList<Item>(Arrays.asList(telefontisch, flurschrank)),
+				new ArrayList<NPC>());
+		Room Küche = new Room("Küche", KücheDoors, new ArrayList<Item>(Arrays.asList(küchenschrank, kühlschrank)),
+				new ArrayList<NPC>());
+		Room Eingang = new Room("Eingang", EingangDoors, new ArrayList<Item>(Arrays.asList(schuschrank)),
+				new ArrayList<NPC>());
+		Room Abstellkammer = new Room("Abstellkammer", AbstellkammerDoors,
+				new ArrayList<Item>(Arrays.asList(abstellkammerregal)), new ArrayList<NPC>());
+		Room Vorratskammer = new Room("Vorratskammer", VorratskammerDoors,
+				new ArrayList<Item>(Arrays.asList(vorratskammerregal)), new ArrayList<NPC>());
+		Room Bad = new Room("Bad", BadDoors, new ArrayList<Item>(Arrays.asList(badezimmerschrank)),
+				new ArrayList<NPC>());
+		Room Flur1S = new Room("Flur1S", Flur1SDoors, new ArrayList<Item>(Arrays.asList(bild)), new ArrayList<NPC>());
+		Room Arbeitszimmer = new Room("Arbeitszimmer", ArbeitszimmerDoors,
+				new ArrayList<Item>(Arrays.asList(arbeitszimmerregal)), new ArrayList<NPC>());
+		Room Kinderzimmer = new Room("Kinderzimmer", KinderzimmerDoors,
+				new ArrayList<Item>(Arrays.asList(spielsachen, kinderbett)), new ArrayList<NPC>());
+		Room Schlafzimmer = new Room("Schlafzimmer", SchlafzimmerDoors, new ArrayList<Item>(Arrays.asList(bett)),
+				new ArrayList<NPC>());
 
 		Rooms.add(Wohnzimmer);
 		Rooms.add(FlurEG);
