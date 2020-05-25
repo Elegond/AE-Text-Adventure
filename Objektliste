@@ -10,8 +10,8 @@ Kueche
 -Kuehlschrank(static, Inhalt: Milch(usable), Apfel(usable))
 
 Wohnzimmer
--Couch(static, Inhalt: SofaPizza(static), 5EuroSchein(usable))
--Fernseher(static, Inhalt())
+-Couch(static, Inhalt: SofaPizza(Item), 5EuroSchein(usable))
+-Fernseher(Item)
 -WohnzimmerSchrank(static, Inhalt:())
 -Wohnzimmertisch(static, Inhalt:())
 
