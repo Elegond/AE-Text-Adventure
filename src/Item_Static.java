@@ -4,8 +4,8 @@ import java.util.List;
 public class Item_Static extends Item {
 
 	private List<Item> content;
-	public Item_Static(String name, String description, int gewicht,ArrayList<Item> arrayList) {
-		super(name, description, gewicht);
+	public Item_Static(String name, String description, int weight,ArrayList<Item> arrayList) {
+		super(name, description, weight);
 		this.content = arrayList;
 	}
 	public void push_Content(Item_Usable i) {

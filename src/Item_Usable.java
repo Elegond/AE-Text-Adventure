@@ -4,8 +4,8 @@ public class Item_Usable extends Item {
 	Boolean stackable;
 	usableInterface u;
 
-	public Item_Usable(String name, String description, int gewicht, Boolean stackable, usableInterface u) {
-		super(name, description, gewicht);
+	public Item_Usable(String name, String description, int weight, Boolean stackable, usableInterface u) {
+		super(name, description, weight);
 		this.stackable = stackable;
 		this.u = u;
 	}

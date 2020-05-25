@@ -90,7 +90,7 @@ public class Main {
 				schokoladenInterface);
 
 		// Keys
-		Item_Usable kücheKey = new Item_Usable("Arbeitszimmerschlüssel", "Der Schlüssel für das Arbeitszimmer", 1,
+		Item_Usable arbeitszimmerKey = new Item_Usable("Arbeitszimmerschlüssel", "Der Schlüssel für das Arbeitszimmer", 1,
 				false, noUseInt);
 		Item_Usable abstellkammerKey = new Item_Usable("Abstellkammerschlüssel", "Der Schlüssel für die Abstellkammer",
 				1, false, noUseInt);
@@ -107,7 +107,10 @@ public class Main {
 		Item pizza = new Item("Pizza",
 				"3 Tage alte Liferando Blumenkohlpizza mit Pesto, Zucchini und Rotkohl\nTötlich für Jedes Kind", 5);
 		Item schuh = new Item("Schuh", "Alte durchgelaufene Schuhe mit Löchern", 3);
-
+		Item spielsachen = new Item("Spielsachen", "Benutzte Spielsachen", 1);
+		Item bild = new Item("Bild", "Ein Bild von etwas unbeschreibbaren",2);
+		
+		
 		// Item_static
 
 		Item_Static schuschrank = new Item_Static("Schuhschrank", "Ein Schuhschrank", 60,
@@ -116,18 +119,18 @@ public class Main {
 		Item_Static flurschrank = new Item_Static("Flurschrank", "Ein Flurschrank", 30,
 				new ArrayList<Item>(Arrays.asList(apfel)));
 		Item_Static telefontisch = new Item_Static("Telefontisch", "Ein Telefontisch", 25,
-				new ArrayList<Item>(Arrays.asList()));
+				new ArrayList<Item>(Arrays.asList(new Item("Taschentücher","Eine Packung Taschentücher für den Personlichengebrauch",1))));
 		
 		Item_Static küchenschrank = new Item_Static("Küchenschrank", "Ein Küchenschrank", 35,
 				new ArrayList<Item>(Arrays.asList(abstellkammerKey, handy)));
 		Item_Static kühlschrank = new Item_Static("Kühlschrank",
 				"Ein Samsung RS67N8211B1 Kühl-Gefrierkombinations Kühlschrank", 75,
-				new ArrayList<Item>(Arrays.asList(milch, apfel)));
+				new ArrayList<Item>(Arrays.asList(milch,milch,milch,milch, apfel)));
 		
 
 		Item_Static couch = new Item_Static("Couch", "Eine unbequeme Couch", 80,
 				new ArrayList<Item>(Arrays.asList(pizza,geld)));
-		Item_Static wohnzimmerSchrank = new Item_Static("Wohnzimmerschrank", "Ein Wohnzimmerschrank\nGebaut mit Honduras Rosenholz das im östlichen Südamerika gefellt wurde", 85,
+		Item_Static wohnzimmerschrank = new Item_Static("Wohnzimmerschrank", "Ein Wohnzimmerschrank\nGebaut mit Honduras Rosenholz das im östlichen Südamerika gefellt wurde", 85,
 				new ArrayList<Item>(Arrays.asList()));
 		Item_Static wohnzimmertisch = new Item_Static("Wohnzimmertisch", "Ein Wohnzimmertisch\nEr hat 4 Beine, 4 Ecken und besteht aus Cocobolo Holz", 25,
 				new ArrayList<Item>(Arrays.asList()));
@@ -138,9 +141,18 @@ public class Main {
 		Item_Static abstellkammerregal = new Item_Static("Abstellkammerregal", "Ein Abstellkammerregal", 45,
 				new ArrayList<Item>(Arrays.asList(apfel,apfel,apfel,apfel,apfel)));
 
-		Item_Static Badezimmerschrank = new Item_Static("Badezimmerschrank", "Ein Badezimmerschrank", 55,
-				new ArrayList<Item>(Arrays.asList(pizza,geld)));
+		Item_Static badezimmerschrank = new Item_Static("Badezimmerschrank", "Ein Badezimmerschrank", 55,
+				new ArrayList<Item>(Arrays.asList(new Item("Badezimmersachen", "Sachen die im Badezimmer sind", 4))));
 		
+		Item_Static kinderbett = new Item_Static("Kinderbett", "Ein Kinderbett aus Holz", 45,
+				new ArrayList<Item>(Arrays.asList(new Item("Bettwäsche","Bettwäsche mit Fortnite Design", 2))));
+		
+		
+		Item_Static bett = new Item_Static("Bett", "Ein stählernes Doppelbett aus Stahl", 75,
+				new ArrayList<Item>(Arrays.asList(new Item("Bettwäsche","Bettwäsche mit Star Wars Design und verdächtigen weißen Flecken", 2),arbeitszimmerKey)));
+		
+		Item_Static arbeitszimmerregal = new Item_Static("Arbeitszimmerregal", "Arbeitszimmerregal", 55,
+				new ArrayList<Item>(Arrays.asList(vorratskammerkey)));
 		
 		
 		
