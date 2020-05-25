@@ -71,7 +71,7 @@ public class Main {
 							Main.p.setStamina(2);
 
 					}
-
+					p.getInventory().remove(item);
 				}
 			};
 			Item_Usable.usableInterface schokoladenInterface = new Item_Usable.usableInterface() {
@@ -115,7 +115,7 @@ public class Main {
 
 			// Item_static
 
-			Item_Static schuschrank = new Item_Static("Schuhschrank", "Ein Schuhschrank", 60,
+			Item_Static schuhschrank = new Item_Static("Schuhschrank", "Ein Schuhschrank", 60,
 					new ArrayList<Item>(Arrays.asList(schuh, schuh, schuh)));
 
 			Item_Static flurschrank = new Item_Static("Flurschrank", "Ein Flurschrank", 30,
@@ -216,7 +216,7 @@ public class Main {
 					new ArrayList<Item>(Arrays.asList(telefontisch, flurschrank)), new ArrayList<NPC>());
 			Room Küche = new Room("Küche", KücheDoors, new ArrayList<Item>(Arrays.asList(küchenschrank, kühlschrank)),
 					new ArrayList<NPC>());
-			Room Eingang = new Room("Eingang", EingangDoors, new ArrayList<Item>(Arrays.asList(schuschrank)),
+			Room Eingang = new Room("Eingang", EingangDoors, new ArrayList<Item>(Arrays.asList(schuhschrank)),
 					new ArrayList<NPC>());
 			Room Abstellkammer = new Room("Abstellkammer", AbstellkammerDoors,
 					new ArrayList<Item>(Arrays.asList(abstellkammerregal)), new ArrayList<NPC>());
@@ -365,9 +365,10 @@ public class Main {
 														break b1;
 													else if (auswahl == 1) {
 														((Item_Usable) ite).pickup(((Item_Static) i));
-													}else if(auswahl==2)
+													}else if(auswahl==2) {
+														((Item_Usable) ite).pickup(((Item_Static) i));
 														((Item_Usable) ite).use();;
-														
+													}
 													break b1;
 												}
 												n++;
