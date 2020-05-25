@@ -321,8 +321,11 @@ public class Main {
 							if (auswahl == n) {
 								System.out.println("\n" + i.getName() + "\n" + i.getDescription());
 								if (i instanceof Item_Static) {
-									for (Item ite : ((Item_Static)i).getContent()) {
-										System.out.println(ite.getName());
+									while (true) {
+										n=1;
+										for (Item ite : ((Item_Static)i).getContent()) {
+											System.out.println(ite.getName());
+										}
 									}
 								}
 								break umschauen;

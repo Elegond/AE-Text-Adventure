@@ -23,10 +23,10 @@ public class Person {
 		return inventory;
 	}
 
-	public void pop_Inventar(Item_Usable i) {
+	public void pop_Inventory(Item_Usable i) {
 		inventory.remove(i);
 	}
-	public void push_Inventar(Item_Usable i) {
+	public void push_Inventory(Item_Usable i) {
 		inventory.add(i);
 	}
 }
