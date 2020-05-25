@@ -1,16 +1,23 @@
 import java.util.List;
 
-public class Player extends Person{
+public class Player extends Person {
 	private Integer stamina;
 	private Integer strength;
-	private Integer life;
+	private Integer health;
+	private Integer maxStamina;
+	private Integer maxStrength;
+	private Integer maxHealth;
 	private Room position;
-	
-	public Player (String name, Boolean gender, List<Item_Usable> Item, Integer Stamina, Integer strength, Integer life, Room position) {
+
+	public Player(String name, Boolean gender, List<Item_Usable> Item, Integer stamina, Integer strength,
+			Integer health, Room position) {
 		super(name, gender, Item);
-		this.stamina = Stamina;
+		this.stamina = stamina;
 		this.strength = strength;
-		this.life = life;
+		this.health = health;
+		this.maxStamina = stamina;
+		this.maxStrength = strength;
+		this.maxHealth = health;
 		this.position = position;
 	}
 
@@ -19,7 +26,7 @@ public class Player extends Person{
 	}
 
 	public void setStamina(Integer stamina) {
-		this.stamina = stamina;
+		this.stamina = this.stamina + stamina;
 	}
 
 	public Integer getStrength() {
@@ -27,22 +34,35 @@ public class Player extends Person{
 	}
 
 	public void setStrength(Integer strength) {
-		this.strength = strength;
+		this.strength = this.strength + strength;
 	}
 
-	public Integer getLife() {
-		return life;
+	public Integer getHealth() {
+		return health;
 	}
 
-	public void setLife(Integer life) {
-		this.life = life;
+	public void setHealth(Integer health) {
+		this.health = this.health + health;
 	}
 
 	public Room getPosition() {
 		return position;
 	}
+
 	public void setPosition(Room r) {
-		position=r;
+		position = r;
 	}
-	
+
+	public Integer getMaxStamina() {
+		return maxStamina;
+	}
+
+	public Integer getMaxStrength() {
+		return maxStrength;
+	}
+
+	public Integer getMaxHealth() {
+		return maxHealth;
+	}
+
 }

@@ -11,36 +11,105 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		if (args.length == 0) {
-			/**
-			 * This opens a command line and runs some other class in the jar
-			 * 
-			 * @author Brandon Barajas
-			 */
+		/**
+		 * This opens a command line and runs some other class in the jar
+		 * 
+		 * @author Brandon Barajas https://stackoverflow.com/a/29138847
+		 * 
+		 *         modification: @author Benjamin Saretzki
+		 * 
+		 */
 
-			Console console = System.console();
-			if (console == null && !GraphicsEnvironment.isHeadless()) {
-				String filename = Main.class.getProtectionDomain().getCodeSource().getLocation().toString()
-						.substring(6);
+		Console console = System.console();
+		if (console == null && !GraphicsEnvironment.isHeadless()) {
+			String filename = Main.class.getProtectionDomain().getCodeSource().getLocation().toString().substring(6);
 
-				try {
-					if (filename.contains("bin"))
-						Runtime.getRuntime().exec(new String[] { "cmd", "/c", "start", "cmd", "/k",
-								"java -classpath  \"" + filename + "\" Main" });
-					else
-						Runtime.getRuntime().exec(new String[] { "cmd", "/c", "start", "cmd", "/k",
-								"java -jar \"" + filename + "\" start" });
+			try {
+				if (filename.contains("bin")) // if run in eclipse
+					Runtime.getRuntime().exec(new String[] { "cmd", "/c", "start", "cmd", "/k",
+							"java -classpath  \"" + filename + "\" Main & pause & exit" });
+				else
+					Runtime.getRuntime().exec(new String[] { "cmd", "/c", "start", "cmd", "/k",
+							"java -jar \"" + filename + "\" & pause & exit" });
 
-				} catch (IOException e) {
+			} catch (IOException e) {
 
-				}
-			} else {
-				main(new String[] { "start" });
-				System.out.println("\n\nProgram has ended, please type 'exit' to close the console\n");
 			}
-			System.exit(0);
+		} else {
+			game();
+			System.out.println("\n\nDanke fürs Spielen\n");
 		}
 
+		/** --------- */
+		System.exit(0);
+
+	}
+
+	public static void game() {
+		Item_Usable.usableInterface noUseInt = new Item_Usable.usableInterface() {
+
+			@Override
+			public void use(Item_Usable item) {
+				System.out.println("Du kannst '" + item.name + "' nicht benutzen");
+			}
+		};
+		Item_Usable.usableInterface apfelInterface = new Item_Usable.usableInterface() {
+
+			@Override
+			public void use(Item_Usable item) {
+				System.out.println(item.getName());
+				if (Main.p.getHealth() < Main.p.getMaxHealth())
+					Main.p.setHealth(1);
+				if (Main.p.getStamina() < Main.p.getMaxStamina())
+					Main.p.setStamina(1);
+
+			}
+		};
+		Item_Usable.usableInterface milchInterface = new Item_Usable.usableInterface() {
+
+			@Override
+			public void use(Item_Usable item) {
+				System.out.println(item.getName());
+				if (Main.p.getStamina()+1 < Main.p.getMaxStamina())
+					Main.p.setStamina(2);
+
+			}
+		};
+		// Food
+		Item_Usable apfel = new Item_Usable("Apfel", "Ein Leckerer Apfel\n+1 Leben\n+1 Ausdauer", 2, true,
+				apfelInterface);
+		Item_Usable milch = new Item_Usable("Milch","Fettarme Bio Milch vom Bauern nebenan\n+2 Ausdauer", 2,true,milchInterface);
+		
+		// Keys
+		Item_Usable kücheKey = new Item_Usable("Arbeitszimmerschlüssel", "Der Schlüssel für das Arbeitszimmer", 1, false, noUseInt);
+		Item_Usable abstellkammerKey = new Item_Usable("Abstellkammerschlüssel", "Der Schlüssel für die Abstellkammer",
+				1, false, noUseInt);
+		Item_Usable vorratskammerkey = new Item_Usable("Vorratskammerschlüssel", "Der schlüssel für die Vorratskammer", 1,false,noUseInt);
+		
+		// Other
+		Item_Usable handy = new Item_Usable("Handy", "Apple iPhone XS Pro Plus von deiner Mama", 2,false,noUseInt);
+		Item_Usable geld = new Item_Usable("5 Euroschein","Ein 5 Euroschein mit einem Wert von 5 Euro", 1,false,noUseInt);
+		
+		
+		new Item_Usable("Axt", "Ein Tötliche Axt", 5, false, new Item_Usable.usableInterface() {
+
+			@Override
+			public void use(Item_Usable item) {
+				System.out.println(item.getName());
+				if (p instanceof Player) {
+					if (Main.p.getStamina() > 2) {
+						Main.p.setStamina(Main.p.getStamina() - 2);
+						System.out.println("Axt benutzt");
+					} else {
+						System.out.println("Axt kann nicht benutzt werden benutzt");
+					}
+				}
+
+			}
+		});
+
+
+		// Türen ertstellen
 		Door WohnzimmerFlurEG = new Door("Wohnzimmertür", "Flurtür", true);
 		Door WohnzimmerGarten = new Door("Wohnzimmertür", "Gartentür", "Haustürschlüssel", false, true);
 		Door EingangStraße = new Door("Eingangtür", "Haustür", "Haustürschlüssel", false, true);
@@ -48,11 +117,13 @@ public class Main {
 		Door AbstellkammerFlurEG = new Door("Abstellkammertür", "Flurtür", "Abstellkammerschlüssel", false, true);
 		Door KücheFlurEG = new Door("Küchentür", "Flurtür");
 		Door KücheVorratskammer = new Door("Küchentür", "Vorratskammertür", "Vorratskammerschlüssel", false, true);
-		Door FlurEGFlur1S = new Door("Flurtür", "Flurtür");
+		Door FlurEGFlur1S = new Door("Flurtreppe", "Flurtreppe", true);
 		Door BadFlur1S = new Door("Badezimmertür", "Flurtür");
 		Door KinderzimmerFlur1S = new Door("Kinderzimmertür", "Flurtür");
 		Door SchlafzimmerFlur1S = new Door("Schlafzimmertür", "Flurtür");
 		Door ArbeitszimmerFlur1S = new Door("Arbeitszimmertür", "Flurtür", "Arbeitszimmerschlüssel", false, true);
+
+		// Tür Listen erstellen
 		List<Door> WohnzimmerDoors = new ArrayList<Door>();
 		WohnzimmerDoors.add(WohnzimmerFlurEG);
 		WohnzimmerDoors.add(WohnzimmerGarten);
@@ -62,28 +133,22 @@ public class Main {
 		FlurEGDoors.add(KücheFlurEG);
 		FlurEGDoors.add(AbstellkammerFlurEG);
 		FlurEGDoors.add(FlurEGFlur1S);
-
 		List<Door> EingangDoors = new ArrayList<Door>();
 		EingangDoors.add(EingangFlurEG);
 		EingangDoors.add(EingangStraße);
-
 		List<Door> AbstellkammerDoors = new ArrayList<Door>();
 		AbstellkammerDoors.add(AbstellkammerFlurEG);
-
 		List<Door> KücheDoors = new ArrayList<Door>();
 		KücheDoors.add(KücheFlurEG);
 		KücheDoors.add(KücheVorratskammer);
-
 		List<Door> VorratskammerDoors = new ArrayList<Door>();
 		VorratskammerDoors.add(KücheVorratskammer);
-
 		List<Door> Flur1SDoors = new ArrayList<Door>();
 		Flur1SDoors.add(KinderzimmerFlur1S);
 		Flur1SDoors.add(SchlafzimmerFlur1S);
 		Flur1SDoors.add(BadFlur1S);
 		Flur1SDoors.add(FlurEGFlur1S);
 		Flur1SDoors.add(ArbeitszimmerFlur1S);
-
 		List<Door> BadDoors = new ArrayList<Door>();
 		BadDoors.add(BadFlur1S);
 		List<Door> KinderzimmerDoors = new ArrayList<Door>();
@@ -93,6 +158,7 @@ public class Main {
 		List<Door> ArbeitszimmerDoors = new ArrayList<Door>();
 		ArbeitszimmerDoors.add(ArbeitszimmerFlur1S);
 
+		// Räume erstellen
 		Room Wohnzimmer = new Room("Wohnzimmer", WohnzimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
 		Room FlurEG = new Room("Flur EG", FlurEGDoors, new ArrayList<Item>(), new ArrayList<NPC>());
 		Room Küche = new Room("Küche", KücheDoors, new ArrayList<Item>(), new ArrayList<NPC>());
@@ -116,49 +182,8 @@ public class Main {
 		Rooms.add(Arbeitszimmer);
 		Rooms.add(Kinderzimmer);
 		Rooms.add(Schlafzimmer);
-		Item_Usable.usableInterface noUseInt = new Item_Usable.usableInterface() {
 
-			@Override
-			public void use(Item_Usable item) {
-				System.out.println("Du kannst '" + item.name + "' nicht benutzen");
-			}
-		};
-		Item_Usable.usableInterface apfelint = new Item_Usable.usableInterface() {
-
-			@Override
-			public void use(Item_Usable item) {
-				System.out.println(item.getName());
-				Main.p.setLife(Main.p.getLife() + 1);
-
-			}
-		};
 		List<Item_Usable> InventarPlayer = new ArrayList<Item_Usable>();
-		Item_Usable itm1 = new Item_Usable("Apfel", "Ein Leckerer Apfel", 2, true, apfelint);
-		InventarPlayer.add(itm1);
-		InventarPlayer.add(new Item_Usable("Apfel2", "Ein Leckerer Apfel", 2, true, apfelint));
-
-		InventarPlayer.add(new Item_Usable("Axt", "Ein Tötliche Axt", 5, false, new Item_Usable.usableInterface() {
-
-			@Override
-			public void use(Item_Usable item) {
-				System.out.println(item.getName());
-				if (p instanceof Player) {
-					if (Main.p.getStamina() > 2) {
-						Main.p.setStamina(Main.p.getStamina() - 2);
-						System.out.println("Axt benutzt");
-					} else {
-						System.out.println("Axt kann nicht benutzt werden benutzt");
-					}
-				}
-
-			}
-		}));
-
-		InventarPlayer.add(itm1);
-		InventarPlayer.add(itm1);
-		InventarPlayer.add(itm1);
-		InventarPlayer
-				.add(new Item_Usable("Arbeitszimmerschlüssel", "Schlüssel fürs Arbeitszimmer", 0, false, noUseInt));
 
 		Scanner s = new Scanner(System.in);
 		System.out.println("\n\n\n\n");
@@ -173,16 +198,7 @@ public class Main {
 		String name = "Peter";
 		Boolean geschlecht = false;
 		settings: while (true) {
-			try {
-				new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
+			cls();
 			System.out.println("Charakter Einstellungen\n");
 			System.out.println("1. Name: " + name);
 			System.out.println("2. Geschlecht: " + (geschlecht ? "Weiblich" : "Männlich"));
@@ -206,9 +222,61 @@ public class Main {
 				break;
 			}
 		}
-
-		p = new Player(name, geschlecht, InventarPlayer, 10, 10, 10, Flur1S);
+		cls();
+		p = new Player(name, geschlecht, InventarPlayer, (geschlecht ? 15 : 10), (geschlecht ? 10 : 15), 3,
+				Kinderzimmer);
 		System.out.println("Hallo " + p.getName());
+		System.out.println("Du bist zur Zeit im Kinderzimmer und willst Schokolade essen\n\nFinde die Schokolade!\n");
+
+		game: while (true) {
+
+			System.out.println("\nWas willst du tun?");
+			System.out.println("1. Umschauen");
+			System.out.println("2. Inventar");
+			System.out.println("3. Status");
+			System.out.print("\nAuswahl: ");
+			switch (s.next()) {
+			case "1":
+
+				break;
+			case "2":
+				int n = 1;
+				for (Item_Usable item_Usable : p.inventory) {
+					System.out.println(n + ". " + item_Usable.getName() + "  -  " + item_Usable.getDescription());
+					n++;
+				}
+				System.out.print("\nAuswahl: ");
+				try {
+					int inv = s.nextInt();
+
+					int auswahl = 1;
+					for (Item_Usable item_Usable : p.inventory) {
+						if (inv == auswahl) {
+							System.out.println(
+									auswahl + ". " + item_Usable.getName() + "  -  " + item_Usable.getDescription());
+
+						}
+						auswahl++;
+					}
+
+				} catch (Exception e) {
+
+				}
+				break;
+			case "3":
+				System.out.println("\nHealth: " + p.getHealth() + "/" + p.getMaxHealth());
+				System.out.println("Stamina: " + p.getStamina() + "/" + p.getMaxStamina());
+				System.out.println("Strength: " + p.getStrength() + "/" + p.getMaxStrength());
+				break;
+
+			case "exit":
+				break game;
+			default:
+				break;
+			}
+
+		}
+
 		/*
 		 * p.getPosition().getDoors().get(4).open();
 		 * p.getPosition().getDoors().get(4).enter();
@@ -218,4 +286,15 @@ public class Main {
 		 */
 	}
 
+	public static void cls() {
+		try {
+			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
