@@ -11,4 +11,23 @@ Kueche
 
 Wohnzimmer
 -Couch(static, Inhalt: SofaPizza(static), 5EuroSchein(usable))
-- 
+-Fernseher(static, Inhalt())
+-WohnzimmerSchrank(static, Inhalt:())
+-Wohnzimmertisch(static, Inhalt:())
+
+Vorratskammer
+-Vorratskammerregal(static, Inhalt: Schokolade(usable))
+
+Abstellkammer
+-Abstellkammerregal(static, Inhalt: 5xApfel(usable)
+
+Flur1S
+
+Bad
+
+Kinderzimmer
+
+Schlafzimmer
+
+Arbeitszimmer
+-Arbeitszimmerregal(static Inhalt: Vorratskammerschluessel(usable))
