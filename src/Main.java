@@ -423,6 +423,7 @@ public class Main {
 				}
 				break;
 			case "2": {
+				cls();
 				if (p.inventory.size() == 0) {
 					System.out.println("\nDein Inventar ist leer");
 					break;
@@ -454,12 +455,23 @@ public class Main {
 								if (auswahl == 0)
 									break b4;
 								else if (auswahl == 1) {
+									n=1;
 									for (Item ite : p.getPosition().getInventoy()) {
-										
+										if(ite instanceof Item_Static) {
+											System.out.println(n+". "+ ite.getName());
+											n++;
+										}
 									}
 									
-									System.out.println("");
-									
+									System.out.print("Ziel: ");
+									auswahl=s.nextInt();
+									n=1;
+									for (Item ite : p.getPosition().getInventoy()) {
+										if(ite instanceof Item_Static) {
+											System.out.println(n+". "+ ite.getName());
+											n++;
+										}
+									}
 								} else if (auswahl == 2) {
 									item_Usable.use();
 									
@@ -475,7 +487,7 @@ public class Main {
 			}
 				break;
 			case "3":
-
+				cls();
 				System.out.println("\nLeben: " + p.getHealth() + "/" + p.getMaxHealth());
 				System.out.println("Ausdauer: " + p.getStamina() + "/" + p.getMaxStamina());
 				System.out.println("Kraft: " + p.getStrength() + "/" + p.getMaxStrength());

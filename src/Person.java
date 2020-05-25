@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Person {
+public abstract class Person {
 	protected String name;
 	protected Boolean gender;
 	protected List<Item_Usable> inventory;
