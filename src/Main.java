@@ -2,21 +2,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-	
+	public static Player p;
 	public static void main(String[] args) {
 
 		Door WohnzimmerFlurEG = new Door("Wohnzimmertür", "Flurtür", true);
-		Door WohnzimmerGarten = new Door("Wohnzimmertür", "Garten", "Haustürschlüssel",false,true);
-		Door EingangStraße = new Door("Eingang","Straße","Haustürschlüssel",false,true);
-		Door EingangFlurEG = new Door("Eingang","Flur EG");
-		Door AbstellkammerFlurEG = new Door("Abstellkammer", "Flur EG", "Abstellkammerschlüssel",false,true);
-		Door KücheFlurEG = new Door("Küche", "Flur EG");
-		Door KücheVorratskammer = new Door("Küche", "Vorratskammer","Vorratskammerschlüssel",false,true);
-		Door FlurEGFlur1S = new Door("Flur EG", "Flur 1S");
-		Door BadFlur1S = new Door("Bad", "Flur 1S");
-		Door KinderzimmerFlur1S = new Door("Kinderzimmer", "Flur 1S");
-		Door SchlafzimmerFlur1S = new Door("Schlafzimmer", "Flur 1S");
-		Door ArbeitszimmerFlur1S = new Door("Arbeitszimmer", "Flur 1S","Arbeitszimmerschlüssel",false,true);
+		Door WohnzimmerGarten = new Door("Wohnzimmertür", "Gartentür", "Haustürschlüssel",false,true);
+		Door EingangStraße = new Door("Eingangtür","Haustür","Haustürschlüssel",false,true);
+		Door EingangFlurEG = new Door("Eingangstür","Flurtür");
+		Door AbstellkammerFlurEG = new Door("Abstellkammertür", "Flurtür", "Abstellkammerschlüssel",false,true);
+		Door KücheFlurEG = new Door("Küchentür", "Flurtür");
+		Door KücheVorratskammer = new Door("Küchentür", "Vorratskammertür","Vorratskammerschlüssel",false,true);
+		Door FlurEGFlur1S = new Door("Flurtür", "Flurtür");
+		Door BadFlur1S = new Door("Badezimmertür", "Flurtür");
+		Door KinderzimmerFlur1S = new Door("Kinderzimmertür", "Flurtür");
+		Door SchlafzimmerFlur1S = new Door("Schlafzimmertür", "Flurtür");
+		Door ArbeitszimmerFlur1S = new Door("Arbeitszimmertür", "Flurtür","Arbeitszimmerschlüssel",false,true);
 		List<Door> WohnzimmerDoors = new ArrayList<Door>();
 		WohnzimmerDoors.add(WohnzimmerFlurEG);
 		WohnzimmerDoors.add(WohnzimmerGarten);
@@ -69,6 +69,13 @@ public class Main {
 		Room Arbeitszimmer = new Room("Arbeitszimmer", ArbeitszimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
 		Room Kinderzimmer = new Room("Kinderzimmer", KinderzimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
 		Room Schlafzimmer = new Room("Schlafzimmer", SchlafzimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
+		Item_Usable.usableInterface noUseInt = new Item_Usable.usableInterface() {
+			
+			@Override
+			public void use(Item_Usable item, Person p) {
+				System.out.println("Du kannst " + item.name + " nicht benutzen");
+			}
+		};
 		Item_Usable.usableInterface apfelint = new Item_Usable.usableInterface() {
 			
 			@Override
@@ -101,10 +108,12 @@ public class Main {
 				
 			}
 		}));
-		Player p = new Player("Herbert", true, InventarPlayer,10,10,10,Kinderzimmer);
+		p = new Player("Herbert", true, InventarPlayer,10,10,10,Flur1S);
 		p.getInventory().add(itm1);
 		p.getInventory().add(itm1);
 		p.getInventory().add(itm1);
+		p.getInventory().add(new Item_Usable("Arbeitszimmerschlüssel", "Schlüssel fürs Arbeitszimmer", 0, false, noUseInt));
+		p.getPosition().getDoors().get(4).unlock();
 		System.out.println(p.getName());
 		System.out.println(p.getGender());
 		System.out.println(p.getLife());
