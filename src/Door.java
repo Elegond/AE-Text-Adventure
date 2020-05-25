@@ -42,14 +42,15 @@ public class Door {
 	}
 
 	public void open() {
-		if (locked)
-			unlock();
 		if (!locked) {
 			open = !open;
 			System.out.println("Du hast die "
 					+ (Main.p.getPosition().getRoomName().charAt(0) == name[0].charAt(0) ? name[1] : name[0])
-					+ (open ? " geöffnet":" geschlossen"));
+					+ (open ? " geöffnet" : " geschlossen"));
 		}
+		if (locked)
+			unlock();
+		
 
 	}
 
@@ -72,4 +73,23 @@ public class Door {
 		return false;
 	}
 
+	public void enter() {
+		if (open) {
+			for (Room r : Main.Rooms) {
+				for (Door d : r.getDoors()) {
+					if(d.equals(this)) {
+						if(!Main.p.getPosition().getRoomName().equalsIgnoreCase(r.getRoomName())) {
+							Main.p.setPosition(r);
+							System.out.println("Du hast den Raum "+r.getRoomName()+" betreten");
+						}
+					}
+				}
+			}
+		} else {
+			System.out.println(
+					"Die " + (Main.p.getPosition().getRoomName().charAt(0) == name[0].charAt(0) ? name[1] : name[0])
+							+ "ist geschlossen");
+		}
+
+	}
 }

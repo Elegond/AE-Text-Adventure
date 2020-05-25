@@ -41,5 +41,8 @@ public class Player extends Person{
 	public Room getPosition() {
 		return position;
 	}
+	public void setPosition(Room r) {
+		position=r;
+	}
 	
 }

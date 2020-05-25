@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Main {
 	public static Player p;
-
+	public static List<Room> Rooms = new ArrayList<>();
 	public static void main(String[] args) {
 
 		Door WohnzimmerFlurEG = new Door("Wohnzimmertür", "Flurtür", true);
@@ -52,11 +52,11 @@ public class Main {
 		List<Door> BadDoors = new ArrayList<Door>();
 		BadDoors.add(BadFlur1S);
 		List<Door> KinderzimmerDoors = new ArrayList<Door>();
-		BadDoors.add(KinderzimmerFlur1S);
+		KinderzimmerDoors.add(KinderzimmerFlur1S);
 		List<Door> SchlafzimmerDoors = new ArrayList<Door>();
-		BadDoors.add(SchlafzimmerFlur1S);
+		SchlafzimmerDoors.add(SchlafzimmerFlur1S);
 		List<Door> ArbeitszimmerDoors = new ArrayList<Door>();
-		BadDoors.add(ArbeitszimmerFlur1S);
+		ArbeitszimmerDoors.add(ArbeitszimmerFlur1S);
 
 		Room Wohnzimmer = new Room("Wohnzimmer", WohnzimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
 		Room FlurEG = new Room("Flur EG", FlurEGDoors, new ArrayList<Item>(), new ArrayList<NPC>());
@@ -69,6 +69,18 @@ public class Main {
 		Room Arbeitszimmer = new Room("Arbeitszimmer", ArbeitszimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
 		Room Kinderzimmer = new Room("Kinderzimmer", KinderzimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
 		Room Schlafzimmer = new Room("Schlafzimmer", SchlafzimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
+		
+		Rooms.add(Wohnzimmer);
+		Rooms.add(FlurEG);
+		Rooms.add(Küche);
+		Rooms.add(Eingang);
+		Rooms.add(Abstellkammer);
+		Rooms.add(Vorratskammer);
+		Rooms.add(Bad);
+		Rooms.add(Flur1S);
+		Rooms.add(Arbeitszimmer);
+		Rooms.add(Kinderzimmer);
+		Rooms.add(Schlafzimmer);
 		Item_Usable.usableInterface noUseInt = new Item_Usable.usableInterface() {
 
 			@Override
@@ -114,7 +126,8 @@ public class Main {
 		p.getInventory()
 				.add(new Item_Usable("Arbeitszimmerschlüssel", "Schlüssel fürs Arbeitszimmer", 0, false, noUseInt));
 		p.getPosition().getDoors().get(4).open();
-		p.getPosition().getDoors().get(4).open();
+		p.getPosition().getDoors().get(4).enter();
+		p.getPosition().getDoors().get(0).open();
 		System.out.println(p.getName());
 		System.out.println(p.getGender());
 		System.out.println(p.getLife());
