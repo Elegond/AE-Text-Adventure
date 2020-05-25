@@ -291,7 +291,7 @@ public class Main {
 		System.out.println("Du bist zur Zeit im Kinderzimmer und willst Schokolade essen\n\nFinde die Schokolade!\n");
 
 		game: while (true) {
-
+			System.out.println("Dein aktueller Aufenthalstort ist: "+p.getPosition().getRoomName());
 			System.out.println("\nWas willst du tun?");
 			System.out.println("1. Umschauen");
 			System.out.println("2. Inventar");
@@ -356,6 +356,7 @@ public class Main {
 
 													System.out.println("0. Back");
 													System.out.println("1. Aufnehmen");
+													System.out.println("2. Benutzen");
 													System.out.print("\nAuswahl: ");
 													
 													auswahl = s.nextInt();
@@ -364,7 +365,9 @@ public class Main {
 														break b1;
 													else if (auswahl == 1) {
 														((Item_Usable) ite).pickup(((Item_Static) i));
-													}
+													}else if(auswahl==2)
+														((Item_Usable) ite).use();;
+														
 													break b1;
 												}
 												n++;
@@ -391,7 +394,7 @@ public class Main {
 							}
 							n++;
 						}
-						System.out.println("test");
+						
 					} catch (Exception e) {
 					}
 				}
@@ -425,6 +428,7 @@ public class Main {
 			}
 				break;
 			case "3":
+				
 				System.out.println("\nLeben: " + p.getHealth() + "/" + p.getMaxHealth());
 				System.out.println("Ausdauer: " + p.getStamina() + "/" + p.getMaxStamina());
 				System.out.println("Kraft: " + p.getStrength() + "/" + p.getMaxStrength());
