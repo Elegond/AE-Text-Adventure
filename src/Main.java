@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.io.*;
 import java.awt.GraphicsEnvironment;
-import java.beans.FeatureDescriptor;
-import java.net.URISyntaxException;
 
 public class Main {
 	public static Player p;
@@ -22,6 +20,7 @@ public class Main {
 		 * 
 		 */
 
+		/** -------------------------------------------------------------------------------------------- */
 		Console console = System.console();
 		if (console == null && !GraphicsEnvironment.isHeadless()) {
 			String filename = Main.class.getProtectionDomain().getCodeSource().getLocation().toString().substring(6);
@@ -42,7 +41,7 @@ public class Main {
 			System.out.println("\n\nDanke fürs Spielen\n");
 		}
 
-		/** --------- */
+		/** -------------------------------------------------------------------------------------------- */
 		System.exit(0);
 
 	}
@@ -258,7 +257,6 @@ public class Main {
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		String name = "Peter";
@@ -509,24 +507,16 @@ public class Main {
 			}
 
 		}
-
-		/*
-		 * p.getPosition().getDoors().get(4).open();
-		 * p.getPosition().getDoors().get(4).enter();
-		 * p.getPosition().getDoors().get(0).open();
-		 * 
-		 * for (Item_Usable item_Usable : p.getInventory()) { item_Usable.use(); }
-		 */
+		s.close();
+		
 	}
 
 	public static void cls() {
 		try {
 			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
