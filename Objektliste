@@ -1,0 +1,6 @@
+Eingang
+-Schuhschrank (static, Inhalt: Schuhe(static))
+
+FlurEG
+-Telefontisch(static, Inhalt: Kuechenschlüssel(usable))
+-Flurschrank(static, Inhalt: Apfel(usable))
