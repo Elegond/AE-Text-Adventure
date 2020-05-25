@@ -72,18 +72,17 @@ public class Main {
 		Item_Usable.usableInterface noUseInt = new Item_Usable.usableInterface() {
 
 			@Override
-			public void use(Item_Usable item, Person p) {
-				System.out.println("Du kannst " + item.name + " nicht benutzen");
+			public void use(Item_Usable item) {
+				System.out.println("Du kannst '" + item.name + "' nicht benutzen");
 			}
 		};
 		Item_Usable.usableInterface apfelint = new Item_Usable.usableInterface() {
 
 			@Override
-			public void use(Item_Usable item, Person p) {
+			public void use(Item_Usable item) {
 				System.out.println(item.getName());
-				if (p instanceof Player) {
-					((Player) p).setLife(((Player) p).getLife() + 1);
-				}
+				Main.p.setLife(Main.p.getLife()+1);
+				
 
 			}
 		};
@@ -95,11 +94,11 @@ public class Main {
 		InventarPlayer.add(new Item_Usable("Axt", "Ein Tötliche Axt", 5, false, new Item_Usable.usableInterface() {
 
 			@Override
-			public void use(Item_Usable item, Person p) {
+			public void use(Item_Usable item) {
 				System.out.println(item.getName());
 				if (p instanceof Player) {
-					if (((Player) p).getEndurance() > 2) {
-						((Player) p).setEndurance(((Player) p).getEndurance() - 2);
+					if (Main.p.getEndurance() > 2) {
+						Main.p.setEndurance(Main.p.getEndurance() - 2);
 						System.out.println("Axt benutzt");
 					} else {
 						System.out.println("Axt kann nicht benutzt werden benutzt");
@@ -120,7 +119,7 @@ public class Main {
 		System.out.println(p.getGender());
 		System.out.println(p.getLife());
 		for (Item_Usable item_Usable : p.getInventory()) {
-			item_Usable.use(p);
+			item_Usable.use();
 		}
 		System.out.println(p.getLife());
 	}
