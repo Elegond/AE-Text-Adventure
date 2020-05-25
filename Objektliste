@@ -29,6 +29,7 @@ Bad
 
 Kinderzimmer
 -Spielsachen(Item)
+-Kinderbett(static, Inhalt: Bettwäsche(Item))
 
 Schlafzimmer
 -Bett(static, Inhalt: Bettwäsche(Item), Arbeistzimmerschlüssel(usable))
