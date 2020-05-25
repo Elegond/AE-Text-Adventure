@@ -29,8 +29,8 @@ public class Door {
 		this.locked = false;
 	}
 
-	public String[] getName() {
-		return name;
+	public String getName() {
+		return (Main.p.getPosition().getRoomName().charAt(0) == name[0].charAt(0) ? name[1] : name[0]);
 	}
 
 	public String getKey() {
