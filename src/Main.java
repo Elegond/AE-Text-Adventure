@@ -78,7 +78,7 @@ public class Main {
 
 				@Override
 				public void use(Item_Usable item) {
-					System.out.println("Glückwunsch du hast die Schokolade gegesen");
+					System.out.println("Glückwunsch du hast die Schokolade gegessen");
 					// TODO: Win Function
 				}
 			};
@@ -291,13 +291,13 @@ public class Main {
 		System.out.println("Du bist zur Zeit im Kinderzimmer und willst Schokolade essen\n\nFinde die Schokolade!\n");
 
 		game: while (true) {
-			System.out.println("Dein aktueller Aufenthalstort ist: "+p.getPosition().getRoomName());
+			System.out.println("Dein aktueller Aufenthalstort ist: " + p.getPosition().getRoomName());
 			System.out.println("\nWas willst du tun?");
 			System.out.println("1. Umschauen");
 			System.out.println("2. Inventar");
 			System.out.println("3. Status");
 			System.out.print("\nAuswahl: ");
-			
+
 			switch (s.next()) {
 			case "1":
 				cls();
@@ -318,7 +318,7 @@ public class Main {
 					}
 					try {
 						System.out.print("\nAuswahl: ");
-						
+
 						int auswahl = s.nextInt();
 						cls();
 						n = 1;
@@ -340,7 +340,7 @@ public class Main {
 											}
 										}
 										System.out.print("\nAuswahl: ");
-										
+
 										auswahl = s.nextInt();
 										cls();
 										if (auswahl == 0)
@@ -349,25 +349,26 @@ public class Main {
 										b1: for (Item ite : ((Item_Static) i).getContent()) {
 											if (ite instanceof Item_Usable) {
 												if (auswahl == n) {
-													System.out.println("\n\n--- " + ite.getName() + " ---\n\nBescheibung:  \n"
-															+ ite.getDescription() + "\n\nGewicht: " + ite.getWeight()
-															+ "\n\n\nKraft: " + p.getStrength() + "/"
-															+ p.getMaxStrength());
+													System.out.println("\n\n--- " + ite.getName()
+															+ " ---\n\nBescheibung:  \n" + ite.getDescription()
+															+ "\n\nGewicht: " + ite.getWeight() + "\n\n\nKraft: "
+															+ p.getStrength() + "/" + p.getMaxStrength());
 
 													System.out.println("0. Back");
 													System.out.println("1. Aufnehmen");
 													System.out.println("2. Benutzen");
 													System.out.print("\nAuswahl: ");
-													
+
 													auswahl = s.nextInt();
 													cls();
 													if (auswahl == 0)
 														break b1;
 													else if (auswahl == 1) {
 														((Item_Usable) ite).pickup(((Item_Static) i));
-													}else if(auswahl==2) {
+													} else if (auswahl == 2) {
 														((Item_Usable) ite).pickup(((Item_Static) i));
-														((Item_Usable) ite).use();;
+														((Item_Usable) ite).use();
+														;
 													}
 													break b1;
 												}
@@ -390,12 +391,32 @@ public class Main {
 						}
 						for (Door d : p.getPosition().getDoors()) {
 							if (auswahl == n) {
-								System.out.println(n + ". " + d.getName());
+								b2: while (true) {
+									System.out.println("--- " + d.getName() + " ---");
+									System.out.println("Abgeschlossen: " + (d.getLocked() ? "Ja" : "Nein"));
+									System.out.println("Offen: " + (d.getOpen() ? "Ja" : "Nein"));
+									System.out.println("\n\n0. Back");
+									System.out.println("1. " + (d.getOpen() ? "Schließen" : "Öffnen"));
+									System.out.println((d.getLocked() ? "" : (d.getOpen() ? "2. Durchgehen" : "")));
+									System.out.print("\nAuswahl: ");
+									auswahl = s.nextInt();
+									cls();
+									if (auswahl == 0) {
+										break b2;
+
+									} else if (auswahl == 1)
+										d.open();
+									else if (auswahl == 2) {
+										if (d.enter())
+											break b2;
+									}
+
+								}
 								break umschauen;
 							}
 							n++;
 						}
-						
+
 					} catch (Exception e) {
 					}
 				}
@@ -407,7 +428,7 @@ public class Main {
 				}
 				int n = 1;
 				for (Item_Usable item_Usable : p.inventory) {
-					System.out.println(n + ". " + item_Usable.getName() + "\n" + item_Usable.getDescription()+"\n");
+					System.out.println(n + ". " + item_Usable.getName() + "\n" + item_Usable.getDescription() + "\n");
 					n++;
 				}
 				System.out.print("\nAuswahl: ");
@@ -417,8 +438,8 @@ public class Main {
 					int auswahl = 1;
 					for (Item_Usable item_Usable : p.inventory) {
 						if (inv == auswahl) {
-							System.out.println(
-									auswahl + ". " + item_Usable.getName() + "\n" + item_Usable.getDescription()+"\n");
+							System.out.println(auswahl + ". " + item_Usable.getName() + "\n"
+									+ item_Usable.getDescription() + "\n");
 
 						}
 						auswahl++;
@@ -429,7 +450,7 @@ public class Main {
 			}
 				break;
 			case "3":
-				
+
 				System.out.println("\nLeben: " + p.getHealth() + "/" + p.getMaxHealth());
 				System.out.println("Ausdauer: " + p.getStamina() + "/" + p.getMaxStamina());
 				System.out.println("Kraft: " + p.getStrength() + "/" + p.getMaxStrength());
