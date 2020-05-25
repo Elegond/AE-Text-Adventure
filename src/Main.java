@@ -1,10 +1,45 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.io.*;
+import java.awt.GraphicsEnvironment;
+import java.net.URISyntaxException;
 
 public class Main {
 	public static Player p;
 	public static List<Room> Rooms = new ArrayList<>();
+
 	public static void main(String[] args) {
+
+		if (args.length == 0) {
+			/**
+			 * This opens a command line and runs some other class in the jar
+			 * 
+			 * @author Brandon Barajas
+			 */
+
+			Console console = System.console();
+			if (console == null && !GraphicsEnvironment.isHeadless()) {
+				String filename = Main.class.getProtectionDomain().getCodeSource().getLocation().toString()
+						.substring(6);
+
+				try {
+					if (filename.contains("bin"))
+						Runtime.getRuntime().exec(new String[] { "cmd", "/c", "start", "cmd", "/k",
+								"java -classpath  \"" + filename + "\" Main" });
+					else
+						Runtime.getRuntime().exec(new String[] { "cmd", "/c", "start", "cmd", "/k",
+								"java -jar \"" + filename + "\" start" });
+
+				} catch (IOException e) {
+
+				}
+			} else {
+				main(new String[] { "start" });
+				System.out.println("\n\nProgram has ended, please type 'exit' to close the console\n");
+			}
+			System.exit(0);
+		}
 
 		Door WohnzimmerFlurEG = new Door("Wohnzimmertür", "Flurtür", true);
 		Door WohnzimmerGarten = new Door("Wohnzimmertür", "Gartentür", "Haustürschlüssel", false, true);
@@ -69,7 +104,7 @@ public class Main {
 		Room Arbeitszimmer = new Room("Arbeitszimmer", ArbeitszimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
 		Room Kinderzimmer = new Room("Kinderzimmer", KinderzimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
 		Room Schlafzimmer = new Room("Schlafzimmer", SchlafzimmerDoors, new ArrayList<Item>(), new ArrayList<NPC>());
-		
+
 		Rooms.add(Wohnzimmer);
 		Rooms.add(FlurEG);
 		Rooms.add(Küche);
@@ -93,8 +128,7 @@ public class Main {
 			@Override
 			public void use(Item_Usable item) {
 				System.out.println(item.getName());
-				Main.p.setLife(Main.p.getLife()+1);
-				
+				Main.p.setLife(Main.p.getLife() + 1);
 
 			}
 		};
@@ -109,8 +143,8 @@ public class Main {
 			public void use(Item_Usable item) {
 				System.out.println(item.getName());
 				if (p instanceof Player) {
-					if (Main.p.getEndurance() > 2) {
-						Main.p.setEndurance(Main.p.getEndurance() - 2);
+					if (Main.p.getStamina() > 2) {
+						Main.p.setStamina(Main.p.getStamina() - 2);
 						System.out.println("Axt benutzt");
 					} else {
 						System.out.println("Axt kann nicht benutzt werden benutzt");
@@ -119,22 +153,69 @@ public class Main {
 
 			}
 		}));
-		p = new Player("Herbert", true, InventarPlayer, 10, 10, 10, Flur1S);
-		p.getInventory().add(itm1);
-		p.getInventory().add(itm1);
-		p.getInventory().add(itm1);
-		p.getInventory()
+
+		InventarPlayer.add(itm1);
+		InventarPlayer.add(itm1);
+		InventarPlayer.add(itm1);
+		InventarPlayer
 				.add(new Item_Usable("Arbeitszimmerschlüssel", "Schlüssel fürs Arbeitszimmer", 0, false, noUseInt));
-		p.getPosition().getDoors().get(4).open();
-		p.getPosition().getDoors().get(4).enter();
-		p.getPosition().getDoors().get(0).open();
-		System.out.println(p.getName());
-		System.out.println(p.getGender());
-		System.out.println(p.getLife());
-		for (Item_Usable item_Usable : p.getInventory()) {
-			item_Usable.use();
+
+		Scanner s = new Scanner(System.in);
+		System.out.println("\n\n\n\n");
+		System.out.println("Willkommen zum Textadventure");
+		System.out.println("\n\n\n\n");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
-		System.out.println(p.getLife());
+		String name = "Peter";
+		Boolean geschlecht = false;
+		settings: while (true) {
+			try {
+				new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			System.out.println("Charakter Einstellungen\n");
+			System.out.println("1. Name: " + name);
+			System.out.println("2. Geschlecht: " + (geschlecht ? "Weiblich" : "Männlich"));
+			System.out.println("Ausdauer: " + (geschlecht ? 15 : 10));
+			System.out.println("Kraft: " + (geschlecht ? 10 : 15));
+			System.out.println("Leben: 3");
+			System.out.println("\n3. OK");
+			System.out.print("Auswahl:");
+			switch (s.next()) {
+			case "1":
+				System.out.print("Name: ");
+				name = s.next();
+				break;
+			case "2":
+				geschlecht = !geschlecht;
+				break;
+			case "3":
+				break settings;
+
+			default:
+				break;
+			}
+		}
+
+		p = new Player(name, geschlecht, InventarPlayer, 10, 10, 10, Flur1S);
+		System.out.println("Hallo " + p.getName());
+		/*
+		 * p.getPosition().getDoors().get(4).open();
+		 * p.getPosition().getDoors().get(4).enter();
+		 * p.getPosition().getDoors().get(0).open();
+		 * 
+		 * for (Item_Usable item_Usable : p.getInventory()) { item_Usable.use(); }
+		 */
 	}
 
 }

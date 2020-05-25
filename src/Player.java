@@ -1,25 +1,25 @@
 import java.util.List;
 
 public class Player extends Person{
-	private Integer endurance;
+	private Integer stamina;
 	private Integer strength;
 	private Integer life;
 	private Room position;
 	
-	public Player (String name, Boolean gender, List<Item_Usable> Item, Integer endurance, Integer strength, Integer life, Room position) {
+	public Player (String name, Boolean gender, List<Item_Usable> Item, Integer Stamina, Integer strength, Integer life, Room position) {
 		super(name, gender, Item);
-		this.endurance = endurance;
+		this.stamina = Stamina;
 		this.strength = strength;
 		this.life = life;
 		this.position = position;
 	}
 
-	public Integer getEndurance() {
-		return endurance;
+	public Integer getStamina() {
+		return stamina;
 	}
 
-	public void setEndurance(Integer endurance) {
-		this.endurance = endurance;
+	public void setStamina(Integer stamina) {
+		this.stamina = stamina;
 	}
 
 	public Integer getStrength() {

@@ -65,6 +65,7 @@ public class Door {
 				System.out.println("Du hast die "
 						+ (Main.p.getPosition().getRoomName().charAt(0) == name[0].charAt(0) ? name[1] : name[0])
 						+ " aufgeschlossen");
+				Main.p.pop_Inventar(i);
 				return true;
 			}
 
