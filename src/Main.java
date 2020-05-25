@@ -268,7 +268,7 @@ public class Main {
 			System.out.println("Kraft: " + (geschlecht ? 10 : 15));
 			System.out.println("Leben: 3");
 			System.out.println("\n3. OK");
-			System.out.print("Auswahl:");
+			System.out.print("Auswahl: ");
 			switch (s.next()) {
 			case "1":
 				System.out.print("Name: ");
@@ -286,7 +286,7 @@ public class Main {
 		}
 		cls();
 		p = new Player(name, geschlecht, InventarPlayer, (geschlecht ? 15 : 10), (geschlecht ? 10 : 15), 3,
-				Rooms.get(0));
+				Rooms.get(3));
 		System.out.println("Hallo " + p.getName());
 		System.out.println("Du bist zur Zeit im Kinderzimmer und willst Schokolade essen\n\nFinde die Schokolade!\n");
 
@@ -315,17 +315,50 @@ public class Main {
 						n++;
 					}
 					try {
+						System.out.print("\nAuswahl: ");
 						int auswahl = s.nextInt();
 						n = 1;
 						for (Item i : p.getPosition().getInventoy()) {
 							if (auswahl == n) {
 								System.out.println("\n" + i.getName() + "\n" + i.getDescription());
 								if (i instanceof Item_Static) {
-									while (true) {
+									iteminv: while (true) {
 										n=1;
+										System.out.println("0. Back");
 										for (Item ite : ((Item_Static)i).getContent()) {
-											System.out.println(ite.getName());
+											if (i instanceof Item_Usable) {
+											System.out.println(n+". "+ite.getName() + "  -  "+ite.getDescription());
+											n++;
+											}else {
+												System.out.println("   "+ite.getName() + "  -  "+ite.getDescription());
+											}
 										}
+										System.out.print("\nAuswahl: ");
+										auswahl = s.nextInt();
+										if (auswahl==0)
+											break iteminv;
+										n=1;
+										b1: for (Item ite : ((Item_Static)i).getContent()) {
+											if (i instanceof Item_Usable) {
+												if(auswahl==n) {
+													System.out.println(n+". "+ite.getName() + "\n\nBescheibung:  \n"+ite.getDescription()+"\n\nGewicht: "+ite.getWeight()+"\n\n\nKraft: "+ p.getStrength() + "/" + p.getMaxStrength());
+													System.out.println("1. Aufnehmen");
+													System.out.println("0. Back");
+													System.out.println("\nAuswahl: ");
+													auswahl = s.nextInt();
+													if (auswahl==0)
+														break iteminv;
+													else if (auswahl==1) {
+														((Item_Usable)ite).pickup(((Item_Static)i));
+													}
+													break b1;
+												}
+											n++;
+											}
+										}
+										
+										
+										
 									}
 								}
 								break umschauen;
