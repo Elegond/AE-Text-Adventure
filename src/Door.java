@@ -2,14 +2,14 @@
 public class Door {
 	private String[] name = new String[2];
 	private String key;
-	private Boolean open_close;
+	private Boolean open;
 	private Boolean locked;
 
-	public Door(String name0, String name1, String key, Boolean open_close, Boolean locked) {
+	public Door(String name0, String name1, String key, Boolean open, Boolean locked) {
 		this.name[0] = name0;
 		this.name[1] = name1;
 		this.key = key;
-		this.open_close = open_close; // true = offen | false = geschlossen
+		this.open = open; // true = offen | false = geschlossen
 		this.locked = locked; // false = offen | true = abgeschlossen
 	}
 
@@ -17,15 +17,15 @@ public class Door {
 		this.name[0] = name0;
 		this.name[1] = name1;
 		this.key = null;
-		this.open_close = true;
+		this.open = false;
 		this.locked = false;
 	}
 
-	public Door(String name0, String name1, Boolean open_close) {
+	public Door(String name0, String name1, Boolean open) {
 		name[0] = name0;
 		name[1] = name1;
 		key = null;
-		this.open_close = open_close;
+		this.open = open;
 		this.locked = false;
 	}
 
@@ -37,15 +37,19 @@ public class Door {
 		return key;
 	}
 
-	public Boolean getOpen_close() {
-		return open_close;
+	public Boolean getOpen() {
+		return open;
 	}
 
-	public void setOpen_close() {
+	public void open() {
 		if (locked)
 			unlock();
-		if (!locked)
-			open_close = !open_close;
+		if (!locked) {
+			open = !open;
+			System.out.println("Du hast die "
+					+ (Main.p.getPosition().getRoomName().charAt(0) == name[0].charAt(0) ? name[1] : name[0])
+					+ (open ? " geöffnet":" geschlossen"));
+		}
 
 	}
 
@@ -53,7 +57,7 @@ public class Door {
 		return locked;
 	}
 
-	public boolean unlock() {
+	private boolean unlock() {
 		for (Item_Usable i : Main.p.getInventory()) {
 			if (i.getName().equalsIgnoreCase(key)) {
 				this.locked = false;

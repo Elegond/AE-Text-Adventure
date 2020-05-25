@@ -114,7 +114,8 @@ public class Main {
 		p.getInventory().add(itm1);
 		p.getInventory()
 				.add(new Item_Usable("Arbeitszimmerschlüssel", "Schlüssel fürs Arbeitszimmer", 0, false, noUseInt));
-		p.getPosition().getDoors().get(4).unlock();
+		p.getPosition().getDoors().get(4).open();
+		p.getPosition().getDoors().get(4).open();
 		System.out.println(p.getName());
 		System.out.println(p.getGender());
 		System.out.println(p.getLife());
