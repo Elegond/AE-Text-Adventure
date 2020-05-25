@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-05-25T13:57:29.370Z" agent="5.0 (Windows)" etag="oIMtEaQVoJnHHxhDcLMC" version="13.1.3" type="github">
+<mxfile host="app.diagrams.net" modified="2020-05-25T13:57:59.728Z" agent="5.0 (Windows)" etag="T79fXFNEcnsK_BaEnxQ8" version="13.1.3" type="github">
   <diagram id="07fea595-8f29-1299-0266-81d95cde20df" name="Page-1">
     <mxGraphModel dx="2034" dy="-1430" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
       <root>
@@ -110,7 +110,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="gB95SLwCQNndzW6SZIlA-692" value="&lt;h2&gt;Garten&lt;/h2&gt;" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1050" y="3050" width="140" height="60" as="geometry" />
+          <mxGeometry x="1050" y="3050" width="90" height="60" as="geometry" />
         </mxCell>
         <mxCell id="gB95SLwCQNndzW6SZIlA-693" value="&lt;h2&gt;Straße&lt;/h2&gt;" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="50" y="3050" width="140" height="60" as="geometry" />
