@@ -47,6 +47,7 @@ public class Door {
 			System.out.println("Du hast die "
 					+ (Main.p.getPosition().getRoomName().charAt(0) == name[0].charAt(0) ? name[1] : name[0])
 					+ (open ? " geöffnet" : " geschlossen"));
+			Main.p.setStamina(-1);
 		}
 		if (locked)
 			unlock();

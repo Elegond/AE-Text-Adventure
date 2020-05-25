@@ -79,6 +79,7 @@ public class Main {
 				@Override
 				public void use(Item_Usable item) {
 					System.out.println("Glückwunsch du hast die Schokolade gegessen");
+					p.setHealth(-3);
 					// TODO: Win Function
 				}
 			};
@@ -250,7 +251,7 @@ public class Main {
 		Scanner s = new Scanner(System.in);
 		System.out.println("\n\n\n\n");
 		System.out.println("Willkommen zum Textadventure");
-		System.out.println("\n\n\n\n");
+		System.out.println("\n\n\n\nBeta 1.0");
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e1) {
@@ -286,7 +287,7 @@ public class Main {
 		}
 		cls();
 		p = new Player(name, geschlecht, InventarPlayer, (geschlecht ? 15 : 10), (geschlecht ? 10 : 15), 3,
-				Rooms.get(3));
+				Rooms.get(0));
 		System.out.println("Hallo " + p.getName());
 		System.out.println("Du bist zur Zeit im Kinderzimmer und willst Schokolade essen\n\nFinde die Schokolade!\n");
 
@@ -302,7 +303,7 @@ public class Main {
 			case "1":
 				cls();
 				umschauen: {
-					System.out.println("\nDu Siehst:");
+					System.out.println("\nDu siehst:");
 					int n = 1;
 					for (Item i : p.getPosition().getInventoy()) {
 						System.out.println(n + ". " + i.getName());
@@ -356,7 +357,7 @@ public class Main {
 
 													System.out.println("0. Back");
 													System.out.println("1. Aufnehmen");
-													System.out.println("2. Benutzen");
+													System.out.println("2. Aufnehmen & Benutzen");
 													System.out.print("\nAuswahl: ");
 
 													auswahl = s.nextInt();
@@ -436,11 +437,35 @@ public class Main {
 					int inv = s.nextInt();
 
 					int auswahl = 1;
-					for (Item_Usable item_Usable : p.inventory) {
+					b3: for (Item_Usable item_Usable : p.inventory) {
 						if (inv == auswahl) {
-							System.out.println(auswahl + ". " + item_Usable.getName() + "\n"
-									+ item_Usable.getDescription() + "\n");
+							b4: while (true) {
+								System.out.println("\n\n--- " + item_Usable.getName() + " ---\n\nBescheibung:  \n"
+										+ item_Usable.getDescription() + "\n\nGewicht: " + item_Usable.getWeight()
+										+ "\n\n\nKraft: " + p.getStrength() + "/" + p.getMaxStrength());
 
+								System.out.println("0. Back");
+								System.out.println("1. Ablegen");
+								System.out.println("2. Benutzen");
+								System.out.print("\nAuswahl: ");
+
+								auswahl = s.nextInt();
+								cls();
+								if (auswahl == 0)
+									break b4;
+								else if (auswahl == 1) {
+									for (Item ite : p.getPosition().getInventoy()) {
+										
+									}
+									
+									System.out.println("");
+									
+								} else if (auswahl == 2) {
+									item_Usable.use();
+									
+								}
+							}
+							break b3;
 						}
 						auswahl++;
 					}
