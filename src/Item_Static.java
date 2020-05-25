@@ -1,11 +1,12 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Item_Static extends Item {
 
-	private List<Item_Usable> content;
-	public Item_Static(String name, String description, int gewicht,List<Item_Usable> content) {
+	private List<Item> content;
+	public Item_Static(String name, String description, int gewicht,ArrayList<Item> arrayList) {
 		super(name, description, gewicht);
-		this.content = content;
+		this.content = arrayList;
 	}
 	public void push_Content(Item_Usable i) {
 		content.add(i);
@@ -15,7 +16,7 @@ public class Item_Static extends Item {
 		content.remove(i);
 		
 	}
-	public List<Item_Usable> getContent() {
+	public List<Item> getContent() {
 		return content;
 	}
 }

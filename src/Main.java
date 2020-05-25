@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.io.*;
@@ -53,32 +54,38 @@ public class Main {
 				System.out.println("Du kannst '" + item.name + "' nicht benutzen");
 			}
 		};
-		Item_Usable.usableInterface apfelInterface = new Item_Usable.usableInterface() {
+		Item_Usable.usableInterface foodInterface = new Item_Usable.usableInterface() {
 
 			@Override
 			public void use(Item_Usable item) {
 				System.out.println(item.getName());
+				if(item.getName().equalsIgnoreCase("Apfel")) {
 				if (Main.p.getHealth() < Main.p.getMaxHealth())
 					Main.p.setHealth(1);
 				if (Main.p.getStamina() < Main.p.getMaxStamina())
 					Main.p.setStamina(1);
+				}else if(item.getName().equalsIgnoreCase("Milch")) {
+					if (Main.p.getStamina()+1 < Main.p.getMaxStamina())
+						Main.p.setStamina(2);
+					
+				}
 
 			}
 		};
-		Item_Usable.usableInterface milchInterface = new Item_Usable.usableInterface() {
+		Item_Usable.usableInterface schokoladenInterface = new Item_Usable.usableInterface() {
 
 			@Override
 			public void use(Item_Usable item) {
-				System.out.println(item.getName());
-				if (Main.p.getStamina()+1 < Main.p.getMaxStamina())
-					Main.p.setStamina(2);
-
+				System.out.println("Glückwunsch du hast die Schokolade gegesen");
+				// TODO: Win Function 
 			}
 		};
+		
 		// Food
 		Item_Usable apfel = new Item_Usable("Apfel", "Ein Leckerer Apfel\n+1 Leben\n+1 Ausdauer", 2, true,
-				apfelInterface);
-		Item_Usable milch = new Item_Usable("Milch","Fettarme Bio Milch vom Bauern nebenan\n+2 Ausdauer", 2,true,milchInterface);
+				foodInterface);
+		Item_Usable milch = new Item_Usable("Milch","Fettarme Bio Milch vom Bauern nebenan\n+2 Ausdauer", 2,true,foodInterface);
+		Item_Usable schokolade = new Item_Usable("Schokolade","Feinste Hasch Schokolade\n-3Leben",1,false,schokoladenInterface);
 		
 		// Keys
 		Item_Usable kücheKey = new Item_Usable("Arbeitszimmerschlüssel", "Der Schlüssel für das Arbeitszimmer", 1, false, noUseInt);
@@ -89,6 +96,18 @@ public class Main {
 		// Other
 		Item_Usable handy = new Item_Usable("Handy", "Apple iPhone XS Pro Plus von deiner Mama", 2,false,noUseInt);
 		Item_Usable geld = new Item_Usable("5 Euroschein","Ein 5 Euroschein mit einem Wert von 5 Euro", 1,false,noUseInt);
+		
+		
+		//Items
+		Item tv = new Item("Fernseher", "Samsung UE-RU7179 4K Smart TV", 50);
+		Item pizza = new Item("Pizza","3 Tage alte Liferando Blumenkohlpizza mit Pesto, Zucchini und Rotkohl\nTötlich für Jedes Kind",5);
+		Item schuh = new Item("Schuh", "Alte durchgelaufene Schuhe mit Löchern", 3);
+		
+		// Item_static
+		
+		Item_Static schuschrank = new Item_Static("Schuhschrank", "Ein Schuhschrank", 60, new ArrayList<Item>(Arrays.asList(schuh,schuh,schuh))); 
+		
+		
 		
 		
 		new Item_Usable("Axt", "Ein Tötliche Axt", 5, false, new Item_Usable.usableInterface() {
