@@ -4,3 +4,6 @@ Eingang
 FlurEG
 -Telefontisch(static, Inhalt: Kuechenschlüssel(usable))
 -Flurschrank(static, Inhalt: Apfel(usable))
+
+Kueche
+-Kuechenschrank (static, Inhalt: Abstellkammerschluessel(usable), 
