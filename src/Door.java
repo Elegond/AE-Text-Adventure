@@ -9,7 +9,7 @@ public class Door {
 		this.name[0] = name0;
 		this.name[1] = name1;
 		this.key = key;
-		this.open_close = open_close;
+		this.open_close = open_close; // true = offen | false = geschlossen
 		this.locked = locked;		
 	}
 
