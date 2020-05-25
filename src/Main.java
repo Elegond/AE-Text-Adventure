@@ -79,12 +79,11 @@ public class Main {
 
 				@Override
 				public void use(Item_Usable item) {
+					Main.cls();
 					System.out.println("Glückwunsch du hast die Schokolade gegessen");
-					p.setHealth(-3);
 
 					System.out.println("\n\nDanke fürs Spielen\n");
 					System.exit(0);
-					// TODO: Win Function
 				}
 			};
 
