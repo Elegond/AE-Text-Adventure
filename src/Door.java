@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class Door {
 	private String[] name = new String[2];
@@ -80,6 +81,16 @@ public class Door {
 			 for (Room r : Main.Rooms) {
 				for (Door d : r.getDoors()) {
 					if(d.equals(this)) {
+						if(this.getName().contains("treppe")) {
+							Random rdn = new Random();
+							int i = rdn.nextInt(4);
+							if(i==2) {
+								System.out.println("\n\nDu bist von der Treppe Gefallen\n\n");
+								Main.p.setHealth(-1);
+								Main.p.setPosition(Main.Rooms.get(1));
+								return true;
+							}
+						}
 						if(!Main.p.getPosition().equals(r)) {
 							Main.p.setPosition(r);
 							System.out.println("Du hast den Raum "+r.getRoomName()+" betreten");

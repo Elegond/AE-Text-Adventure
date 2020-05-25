@@ -60,16 +60,17 @@ public class Main {
 
 				@Override
 				public void use(Item_Usable item) {
-					System.out.println(item.getName());
+					
 					if (item.getName().equalsIgnoreCase("Apfel")) {
+						System.out.println("Du hast ein "+item.getName()+" gegessen");
 						if (Main.p.getHealth() < Main.p.getMaxHealth())
 							Main.p.setHealth(1);
 						if (Main.p.getStamina() < Main.p.getMaxStamina())
 							Main.p.setStamina(1);
 					} else if (item.getName().equalsIgnoreCase("Milch")) {
-						if (Main.p.getStamina() + 1 < Main.p.getMaxStamina())
+						if (Main.p.getStamina() + 1 < Main.p.getMaxStamina()) 
 							Main.p.setStamina(2);
-
+						System.out.println("Du hast eine "+item.getName()+" getrunken");
 					}
 					p.getInventory().remove(item);
 				}
@@ -80,6 +81,9 @@ public class Main {
 				public void use(Item_Usable item) {
 					System.out.println("Glückwunsch du hast die Schokolade gegessen");
 					p.setHealth(-3);
+
+					System.out.println("\n\nDanke fürs Spielen\n");
+					System.exit(0);
 					// TODO: Win Function
 				}
 			};
@@ -235,8 +239,8 @@ public class Main {
 					new ArrayList<NPC>());
 
 			Rooms.add(Kinderzimmer);
-			Rooms.add(Wohnzimmer);
 			Rooms.add(FlurEG);
+			Rooms.add(Wohnzimmer);
 			Rooms.add(Küche);
 			Rooms.add(Eingang);
 			Rooms.add(Abstellkammer);
@@ -436,7 +440,7 @@ public class Main {
 				System.out.print("\nAuswahl: ");
 				try {
 					int inv = s.nextInt();
-
+					cls();
 					int auswahl = 1;
 					b3: for (Item_Usable item_Usable : p.inventory) {
 						if (inv == auswahl) {
@@ -455,26 +459,30 @@ public class Main {
 								if (auswahl == 0)
 									break b4;
 								else if (auswahl == 1) {
-									n=1;
+									n = 1;
 									for (Item ite : p.getPosition().getInventoy()) {
-										if(ite instanceof Item_Static) {
-											System.out.println(n+". "+ ite.getName());
+										if (ite instanceof Item_Static) {
+											System.out.println(n + ". " + ite.getName());
 											n++;
 										}
 									}
-									
+
 									System.out.print("Ziel: ");
-									auswahl=s.nextInt();
-									n=1;
+									auswahl = s.nextInt();
+									n = 1;
 									for (Item ite : p.getPosition().getInventoy()) {
-										if(ite instanceof Item_Static) {
-											System.out.println(n+". "+ ite.getName());
+										if (ite instanceof Item_Static) {
+											if (n == auswahl) {
+												item_Usable.drop((Item_Static) ite);
+												break b4;
+											}
 											n++;
 										}
 									}
 								} else if (auswahl == 2) {
 									item_Usable.use();
-									
+									break b4;
+
 								}
 							}
 							break b3;
