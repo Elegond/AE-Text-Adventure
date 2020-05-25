@@ -297,8 +297,10 @@ public class Main {
 			System.out.println("2. Inventar");
 			System.out.println("3. Status");
 			System.out.print("\nAuswahl: ");
+			
 			switch (s.next()) {
 			case "1":
+				cls();
 				umschauen: {
 					System.out.println("\nDu Siehst:");
 					int n = 1;
@@ -316,7 +318,9 @@ public class Main {
 					}
 					try {
 						System.out.print("\nAuswahl: ");
+						
 						int auswahl = s.nextInt();
+						cls();
 						n = 1;
 						for (Item i : p.getPosition().getInventoy()) {
 							if (auswahl == n) {
@@ -336,7 +340,9 @@ public class Main {
 											}
 										}
 										System.out.print("\nAuswahl: ");
+										
 										auswahl = s.nextInt();
+										cls();
 										if (auswahl == 0)
 											break iteminv;
 										n = 1;
@@ -351,9 +357,11 @@ public class Main {
 													System.out.println("0. Back");
 													System.out.println("1. Aufnehmen");
 													System.out.print("\nAuswahl: ");
+													
 													auswahl = s.nextInt();
+													cls();
 													if (auswahl == 0)
-														break iteminv;
+														break b1;
 													else if (auswahl == 1) {
 														((Item_Usable) ite).pickup(((Item_Static) i));
 													}

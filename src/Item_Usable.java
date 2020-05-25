@@ -24,9 +24,9 @@ public class Item_Usable extends Item {
 			s.pop_Content(this);
 			Main.p.push_Inventory(this);
 			Main.p.setStrength(getWeight() * -1);
-			System.out.println("Du hast "+getName()+" Aufgenommen");
+			System.out.println("\n    Du hast "+getName()+" Aufgenommen\n\n");
 		}else
-			System.out.println("Du hast nicht genug kraft um "+getName()+" zu tragen");
+			System.out.println("\n   Du hast nicht genug kraft um "+getName()+" zu tragen\n\n");
 	}
 
 	public void drop(Item_Static s) {
