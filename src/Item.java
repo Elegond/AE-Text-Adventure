@@ -20,8 +20,5 @@ public class Item {
 	public int getWeight() {
 		return weight;
 	}
-	public String explore() {
-		// TODO: schreiben der Funktion
-		return "";
-	}
+	
 }

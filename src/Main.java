@@ -59,15 +59,15 @@ public class Main {
 			@Override
 			public void use(Item_Usable item) {
 				System.out.println(item.getName());
-				if(item.getName().equalsIgnoreCase("Apfel")) {
-				if (Main.p.getHealth() < Main.p.getMaxHealth())
-					Main.p.setHealth(1);
-				if (Main.p.getStamina() < Main.p.getMaxStamina())
-					Main.p.setStamina(1);
-				}else if(item.getName().equalsIgnoreCase("Milch")) {
-					if (Main.p.getStamina()+1 < Main.p.getMaxStamina())
+				if (item.getName().equalsIgnoreCase("Apfel")) {
+					if (Main.p.getHealth() < Main.p.getMaxHealth())
+						Main.p.setHealth(1);
+					if (Main.p.getStamina() < Main.p.getMaxStamina())
+						Main.p.setStamina(1);
+				} else if (item.getName().equalsIgnoreCase("Milch")) {
+					if (Main.p.getStamina() + 1 < Main.p.getMaxStamina())
 						Main.p.setStamina(2);
-					
+
 				}
 
 			}
@@ -77,35 +77,69 @@ public class Main {
 			@Override
 			public void use(Item_Usable item) {
 				System.out.println("Glückwunsch du hast die Schokolade gegesen");
-				// TODO: Win Function 
+				// TODO: Win Function
 			}
 		};
-		
+
 		// Food
 		Item_Usable apfel = new Item_Usable("Apfel", "Ein Leckerer Apfel\n+1 Leben\n+1 Ausdauer", 2, true,
 				foodInterface);
-		Item_Usable milch = new Item_Usable("Milch","Fettarme Bio Milch vom Bauern nebenan\n+2 Ausdauer", 2,true,foodInterface);
-		Item_Usable schokolade = new Item_Usable("Schokolade","Feinste Hasch Schokolade\n-3Leben",1,false,schokoladenInterface);
-		
+		Item_Usable milch = new Item_Usable("Milch", "Fettarme Bio Milch vom Bauern nebenan\n+2 Ausdauer", 2, true,
+				foodInterface);
+		Item_Usable schokolade = new Item_Usable("Schokolade", "Feinste Hasch Schokolade\n-3Leben", 1, false,
+				schokoladenInterface);
+
 		// Keys
-		Item_Usable kücheKey = new Item_Usable("Arbeitszimmerschlüssel", "Der Schlüssel für das Arbeitszimmer", 1, false, noUseInt);
+		Item_Usable kücheKey = new Item_Usable("Arbeitszimmerschlüssel", "Der Schlüssel für das Arbeitszimmer", 1,
+				false, noUseInt);
 		Item_Usable abstellkammerKey = new Item_Usable("Abstellkammerschlüssel", "Der Schlüssel für die Abstellkammer",
 				1, false, noUseInt);
-		Item_Usable vorratskammerkey = new Item_Usable("Vorratskammerschlüssel", "Der schlüssel für die Vorratskammer", 1,false,noUseInt);
-		
+		Item_Usable vorratskammerkey = new Item_Usable("Vorratskammerschlüssel", "Der schlüssel für die Vorratskammer",
+				1, false, noUseInt);
+
 		// Other
-		Item_Usable handy = new Item_Usable("Handy", "Apple iPhone XS Pro Plus von deiner Mama", 2,false,noUseInt);
-		Item_Usable geld = new Item_Usable("5 Euroschein","Ein 5 Euroschein mit einem Wert von 5 Euro", 1,false,noUseInt);
-		
-		
-		//Items
+		Item_Usable handy = new Item_Usable("Handy", "Apple iPhone XS Pro Plus von deiner Mama", 2, false, noUseInt);
+		Item_Usable geld = new Item_Usable("5 Euroschein", "Ein 5 Euroschein mit einem Wert von 5 Euro", 1, false,
+				noUseInt);
+
+		// Items
 		Item tv = new Item("Fernseher", "Samsung UE-RU7179 4K Smart TV", 50);
-		Item pizza = new Item("Pizza","3 Tage alte Liferando Blumenkohlpizza mit Pesto, Zucchini und Rotkohl\nTötlich für Jedes Kind",5);
+		Item pizza = new Item("Pizza",
+				"3 Tage alte Liferando Blumenkohlpizza mit Pesto, Zucchini und Rotkohl\nTötlich für Jedes Kind", 5);
 		Item schuh = new Item("Schuh", "Alte durchgelaufene Schuhe mit Löchern", 3);
-		
+
 		// Item_static
+
+		Item_Static schuschrank = new Item_Static("Schuhschrank", "Ein Schuhschrank", 60,
+				new ArrayList<Item>(Arrays.asList(schuh, schuh, schuh)));
 		
-		Item_Static schuschrank = new Item_Static("Schuhschrank", "Ein Schuhschrank", 60, new ArrayList<Item>(Arrays.asList(schuh,schuh,schuh))); 
+		Item_Static flurschrank = new Item_Static("Flurschrank", "Ein Flurschrank", 30,
+				new ArrayList<Item>(Arrays.asList(apfel)));
+		Item_Static telefontisch = new Item_Static("Telefontisch", "Ein Telefontisch", 25,
+				new ArrayList<Item>(Arrays.asList()));
+		
+		Item_Static küchenschrank = new Item_Static("Küchenschrank", "Ein Küchenschrank", 35,
+				new ArrayList<Item>(Arrays.asList(abstellkammerKey, handy)));
+		Item_Static kühlschrank = new Item_Static("Kühlschrank",
+				"Ein Samsung RS67N8211B1 Kühl-Gefrierkombinations Kühlschrank", 75,
+				new ArrayList<Item>(Arrays.asList(milch, apfel)));
+		
+
+		Item_Static couch = new Item_Static("Couch", "Eine unbequeme Couch", 80,
+				new ArrayList<Item>(Arrays.asList(pizza,geld)));
+		Item_Static wohnzimmerSchrank = new Item_Static("Wohnzimmerschrank", "Ein Wohnzimmerschrank\nGebaut mit Honduras Rosenholz das im östlichen Südamerika gefellt wurde", 85,
+				new ArrayList<Item>(Arrays.asList()));
+		Item_Static wohnzimmertisch = new Item_Static("Wohnzimmertisch", "Ein Wohnzimmertisch\nEr hat 4 Beine, 4 Ecken und besteht aus Cocobolo Holz", 25,
+				new ArrayList<Item>(Arrays.asList()));
+
+		Item_Static vorratskammerregal = new Item_Static("Vorratskammerregal", "Ein Vorratskammerregal", 35,
+				new ArrayList<Item>(Arrays.asList(schokolade)));
+		
+		Item_Static abstellkammerregal = new Item_Static("Abstellkammerregal", "Ein Abstellkammerregal", 45,
+				new ArrayList<Item>(Arrays.asList(apfel,apfel,apfel,apfel,apfel)));
+
+		Item_Static Badezimmerschrank = new Item_Static("Badezimmerschrank", "Ein Badezimmerschrank", 55,
+				new ArrayList<Item>(Arrays.asList(pizza,geld)));
 		
 		
 		
@@ -126,7 +160,6 @@ public class Main {
 
 			}
 		});
-
 
 		// Türen ertstellen
 		Door WohnzimmerFlurEG = new Door("Wohnzimmertür", "Flurtür", true);
@@ -259,7 +292,7 @@ public class Main {
 
 				break;
 			case "2":
-				if(p.inventory.size()==0) {
+				if (p.inventory.size() == 0) {
 					System.out.println("\nDein Inventar ist leer");
 					break;
 				}
