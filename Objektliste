@@ -2,12 +2,12 @@ Eingang
 -Schuhschrank (static, Inhalt: Schuhe(static))
 
 FlurEG
--Telefontisch(static, Inhalt: Kuechenschlüssel(usable))
+-Telefontisch(static, Inhalt: Taschentücher(Item))
 -Flurschrank(static, Inhalt: Apfel(usable))
 
 Kueche
 -Kuechenschrank(static, Inhalt: Abstellkammerschluessel(usable), MamaHandy(usable))
--Kuehlschrank(static, Inhalt: Milch(usable), Apfel(usable))
+-Kuehlschrank(static, Inhalt: 4xMilch(usable), Apfel(usable))
 
 Wohnzimmer
 -Couch(static, Inhalt: SofaPizza(Item), 5EuroSchein(usable))
@@ -22,12 +22,16 @@ Abstellkammer
 -Abstellkammerregal(static, Inhalt: 5xApfel(usable)
 
 Flur1S
+-Bild(Item)
 
 Bad
+-Badezimmerschrank(static, Inhalt: Badezimmersachen(Item))
 
 Kinderzimmer
+-Spielsachen(Item)
 
 Schlafzimmer
+-Bett(static, Inhalt: Bettwäsche(Item), Arbeistzimmerschlüssel(usable))
 
 Arbeitszimmer
 -Arbeitszimmerregal(static Inhalt: Vorratskammerschluessel(usable))
