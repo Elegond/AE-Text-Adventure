@@ -259,6 +259,10 @@ public class Main {
 
 				break;
 			case "2":
+				if(p.inventory.size()==0) {
+					System.out.println("\nDein Inventar ist leer");
+					break;
+				}
 				int n = 1;
 				for (Item_Usable item_Usable : p.inventory) {
 					System.out.println(n + ". " + item_Usable.getName() + "  -  " + item_Usable.getDescription());
@@ -283,9 +287,9 @@ public class Main {
 				}
 				break;
 			case "3":
-				System.out.println("\nHealth: " + p.getHealth() + "/" + p.getMaxHealth());
-				System.out.println("Stamina: " + p.getStamina() + "/" + p.getMaxStamina());
-				System.out.println("Strength: " + p.getStrength() + "/" + p.getMaxStrength());
+				System.out.println("\nLeben: " + p.getHealth() + "/" + p.getMaxHealth());
+				System.out.println("Ausdauer: " + p.getStamina() + "/" + p.getMaxStamina());
+				System.out.println("Kraft: " + p.getStrength() + "/" + p.getMaxStrength());
 				break;
 
 			case "exit":
