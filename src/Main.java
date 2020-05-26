@@ -136,7 +136,7 @@ public class Main {
 			Item_Static couch = new Item_Static("Couch", "Eine unbequeme Couch", 80,
 					new ArrayList<Item>(Arrays.asList(pizza, geld)));
 			Item_Static wohnzimmerschrank = new Item_Static("Wohnzimmerschrank",
-					"Ein Wohnzimmerschrank\nGebaut mit Honduras Rosenholz das im östlichen Südamerika gefellt wurde",
+					"Ein Wohnzimmerschrank\nGebaut mit Honduras Rosenholz das im östlichen Südamerika gefällt wurde",
 					85, new ArrayList<Item>(Arrays.asList()));
 			Item_Static wohnzimmertisch = new Item_Static("Wohnzimmertisch",
 					"Ein Wohnzimmertisch\nEr hat 4 Beine, 4 Ecken und besteht aus Cocobolo Holz", 25,
@@ -290,7 +290,7 @@ public class Main {
 		p = new Player(name, geschlecht, InventarPlayer, (geschlecht ? 15 : 10), (geschlecht ? 10 : 15), 3,
 				Rooms.get(0));
 		System.out.println("Hallo " + p.getName());
-		System.out.println("Du bist zur Zeit im Kinderzimmer und willst Schokolade essen\n\nFinde die Schokolade!\n");
+		System.out.println("Du bist zur Zeit im Kinderzimmer und willst unbedingt jetzt Schokolade essen. Aber Mama hat nein gesagt. Warum nur...\n\nFinde die Schokolade!\n");
 
 		game: while (true) {
 			System.out.println("Dein aktueller Aufenthalstort ist: " + p.getPosition().getRoomName());
