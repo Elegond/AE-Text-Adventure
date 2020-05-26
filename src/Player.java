@@ -26,6 +26,11 @@ public class Player extends Person {
 	}
 
 	public void setStamina(Integer stamina) {
+		if(this.stamina+stamina<=0) {
+			System.out.println("Du bist Erschöpft\nDas ist Lebensgefährlich");
+			setHealth(-1);
+			this.stamina=this.maxStamina;
+		}
 		this.stamina = this.stamina + stamina;
 	}
 
