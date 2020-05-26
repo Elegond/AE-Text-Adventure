@@ -215,7 +215,7 @@ public class Main {
 			Room Wohnzimmer = new Room("Wohnzimmer", WohnzimmerDoors,
 					new ArrayList<Item>(Arrays.asList(couch, tv, wohnzimmerschrank, wohnzimmertisch)),
 					new ArrayList<NPC>());
-			Room FlurEG = new Room("Flur EG", FlurEGDoors,
+			Room FlurEG = new Room("Flur Erdgeschoss", FlurEGDoors,
 					new ArrayList<Item>(Arrays.asList(telefontisch, flurschrank)), new ArrayList<NPC>());
 			Room Küche = new Room("Küche", KücheDoors, new ArrayList<Item>(Arrays.asList(küchenschrank, kühlschrank)),
 					new ArrayList<NPC>());
@@ -227,7 +227,7 @@ public class Main {
 					new ArrayList<Item>(Arrays.asList(vorratskammerregal)), new ArrayList<NPC>());
 			Room Bad = new Room("Bad", BadDoors, new ArrayList<Item>(Arrays.asList(badezimmerschrank)),
 					new ArrayList<NPC>());
-			Room Flur1S = new Room("Flur1S", Flur1SDoors, new ArrayList<Item>(Arrays.asList(bild)),
+			Room Flur1S = new Room("Flur 1 Obergeschoss", Flur1SDoors, new ArrayList<Item>(Arrays.asList(bild)),
 					new ArrayList<NPC>());
 			Room Arbeitszimmer = new Room("Arbeitszimmer", ArbeitszimmerDoors,
 					new ArrayList<Item>(Arrays.asList(arbeitszimmerregal)), new ArrayList<NPC>());
