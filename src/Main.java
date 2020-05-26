@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.io.*;
 import java.awt.GraphicsEnvironment;
-import java.beans.FeatureDescriptor;
-import java.net.URISyntaxException;
 
 public class Main {
 	public static Player p;
@@ -22,6 +20,7 @@ public class Main {
 		 * 
 		 */
 
+		/** -------------------------------------------------------------------------------------------- */
 		Console console = System.console();
 		if (console == null && !GraphicsEnvironment.isHeadless()) {
 			String filename = Main.class.getProtectionDomain().getCodeSource().getLocation().toString().substring(6);
@@ -42,7 +41,7 @@ public class Main {
 			System.out.println("\n\nDanke fürs Spielen\n");
 		}
 
-		/** --------- */
+		/** -------------------------------------------------------------------------------------------- */
 		System.exit(0);
 
 	}
@@ -60,16 +59,17 @@ public class Main {
 
 				@Override
 				public void use(Item_Usable item) {
-					System.out.println(item.getName());
+					
 					if (item.getName().equalsIgnoreCase("Apfel")) {
+						System.out.println("Du hast ein "+item.getName()+" gegessen");
 						if (Main.p.getHealth() < Main.p.getMaxHealth())
 							Main.p.setHealth(1);
 						if (Main.p.getStamina() < Main.p.getMaxStamina())
 							Main.p.setStamina(1);
 					} else if (item.getName().equalsIgnoreCase("Milch")) {
-						if (Main.p.getStamina() + 1 < Main.p.getMaxStamina())
+						if (Main.p.getStamina() + 1 < Main.p.getMaxStamina()) 
 							Main.p.setStamina(2);
-
+						System.out.println("Du hast eine "+item.getName()+" getrunken");
 					}
 					p.getInventory().remove(item);
 				}
@@ -78,8 +78,11 @@ public class Main {
 
 				@Override
 				public void use(Item_Usable item) {
+					Main.cls();
 					System.out.println("Glückwunsch du hast die Schokolade gegessen");
-					// TODO: Win Function
+
+					System.out.println("\n\nDanke fürs Spielen\n");
+					System.exit(0);
 				}
 			};
 
@@ -234,8 +237,8 @@ public class Main {
 					new ArrayList<NPC>());
 
 			Rooms.add(Kinderzimmer);
-			Rooms.add(Wohnzimmer);
 			Rooms.add(FlurEG);
+			Rooms.add(Wohnzimmer);
 			Rooms.add(Küche);
 			Rooms.add(Eingang);
 			Rooms.add(Abstellkammer);
@@ -250,11 +253,10 @@ public class Main {
 		Scanner s = new Scanner(System.in);
 		System.out.println("\n\n\n\n");
 		System.out.println("Willkommen zum Textadventure");
-		System.out.println("\n\n\n\n");
+		System.out.println("\n\n\n\nBeta 1.0");
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		String name = "Peter";
@@ -286,7 +288,7 @@ public class Main {
 		}
 		cls();
 		p = new Player(name, geschlecht, InventarPlayer, (geschlecht ? 15 : 10), (geschlecht ? 10 : 15), 3,
-				Rooms.get(3));
+				Rooms.get(0));
 		System.out.println("Hallo " + p.getName());
 		System.out.println("Du bist zur Zeit im Kinderzimmer und willst Schokolade essen\n\nFinde die Schokolade!\n");
 
@@ -302,7 +304,7 @@ public class Main {
 			case "1":
 				cls();
 				umschauen: {
-					System.out.println("\nDu Siehst:");
+					System.out.println("\nDu siehst:");
 					int n = 1;
 					for (Item i : p.getPosition().getInventoy()) {
 						System.out.println(n + ". " + i.getName());
@@ -356,7 +358,7 @@ public class Main {
 
 													System.out.println("0. Back");
 													System.out.println("1. Aufnehmen");
-													System.out.println("2. Benutzen");
+													System.out.println("2. Aufnehmen & Benutzen");
 													System.out.print("\nAuswahl: ");
 
 													auswahl = s.nextInt();
@@ -422,6 +424,7 @@ public class Main {
 				}
 				break;
 			case "2": {
+				cls();
 				if (p.inventory.size() == 0) {
 					System.out.println("\nDein Inventar ist leer");
 					break;
@@ -434,13 +437,52 @@ public class Main {
 				System.out.print("\nAuswahl: ");
 				try {
 					int inv = s.nextInt();
-
+					cls();
 					int auswahl = 1;
-					for (Item_Usable item_Usable : p.inventory) {
+					b3: for (Item_Usable item_Usable : p.inventory) {
 						if (inv == auswahl) {
-							System.out.println(auswahl + ". " + item_Usable.getName() + "\n"
-									+ item_Usable.getDescription() + "\n");
+							b4: while (true) {
+								System.out.println("\n\n--- " + item_Usable.getName() + " ---\n\nBescheibung:  \n"
+										+ item_Usable.getDescription() + "\n\nGewicht: " + item_Usable.getWeight()
+										+ "\n\n\nKraft: " + p.getStrength() + "/" + p.getMaxStrength());
 
+								System.out.println("0. Back");
+								System.out.println("1. Ablegen");
+								System.out.println("2. Benutzen");
+								System.out.print("\nAuswahl: ");
+
+								auswahl = s.nextInt();
+								cls();
+								if (auswahl == 0)
+									break b4;
+								else if (auswahl == 1) {
+									n = 1;
+									for (Item ite : p.getPosition().getInventoy()) {
+										if (ite instanceof Item_Static) {
+											System.out.println(n + ". " + ite.getName());
+											n++;
+										}
+									}
+
+									System.out.print("Ziel: ");
+									auswahl = s.nextInt();
+									n = 1;
+									for (Item ite : p.getPosition().getInventoy()) {
+										if (ite instanceof Item_Static) {
+											if (n == auswahl) {
+												item_Usable.drop((Item_Static) ite);
+												break b4;
+											}
+											n++;
+										}
+									}
+								} else if (auswahl == 2) {
+									item_Usable.use();
+									break b4;
+
+								}
+							}
+							break b3;
 						}
 						auswahl++;
 					}
@@ -450,7 +492,7 @@ public class Main {
 			}
 				break;
 			case "3":
-
+				cls();
 				System.out.println("\nLeben: " + p.getHealth() + "/" + p.getMaxHealth());
 				System.out.println("Ausdauer: " + p.getStamina() + "/" + p.getMaxStamina());
 				System.out.println("Kraft: " + p.getStrength() + "/" + p.getMaxStrength());
@@ -465,24 +507,16 @@ public class Main {
 			}
 
 		}
-
-		/*
-		 * p.getPosition().getDoors().get(4).open();
-		 * p.getPosition().getDoors().get(4).enter();
-		 * p.getPosition().getDoors().get(0).open();
-		 * 
-		 * for (Item_Usable item_Usable : p.getInventory()) { item_Usable.use(); }
-		 */
+		s.close();
+		
 	}
 
 	public static void cls() {
 		try {
 			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

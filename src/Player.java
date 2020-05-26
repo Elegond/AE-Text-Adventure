@@ -42,7 +42,13 @@ public class Player extends Person {
 	}
 
 	public void setHealth(Integer health) {
-		this.health = this.health + health;
+		if (this.health + health <= 0) {
+			this.health = 0;
+			System.out.println("\n\n\nGame Over\n\n");
+			System.exit(0);
+		}
+		else
+			this.health = this.health + health;
 	}
 
 	public Room getPosition() {
