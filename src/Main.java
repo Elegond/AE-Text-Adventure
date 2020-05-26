@@ -88,7 +88,7 @@ public class Main {
 					foodInterface);
 			Item_Usable milch = new Item_Usable("Milch", "Fettarme Bio Milch vom Bauern nebenan\n+2 Ausdauer", 2, true,
 					foodInterface);
-			Item_Usable schokolade = new Item_Usable("Schokolade", "Feinste Hasch Schokolade\n-3Leben", 1, false,
+			Item_Usable schokolade = new Item_Usable("Schokolade", "Feinste Hasch-Schokolade\n-3Leben", 1, false,
 					schokoladenInterface);
 
 			// Keys
@@ -108,10 +108,10 @@ public class Main {
 			// Items
 			Item tv = new Item("Fernseher", "Samsung UE-RU7179 4K Smart TV", 50);
 			Item pizza = new Item("Pizza",
-					"3 Tage alte Liferando Blumenkohlpizza mit Pesto, Zucchini und Rotkohl\nTötlich für Jedes Kind", 5);
+					"3 Tage alte Lieferando Blumenkohlpizza mit Pesto, Zucchini und Rotkohl\nTötlich für Jedes Kind", 5);
 			Item schuh = new Item("Schuh", "Alte durchgelaufene Schuhe mit Löchern", 3);
 			Item spielsachen = new Item("Spielsachen", "Benutzte Spielsachen", 1);
-			Item bild = new Item("Bild", "Ein Bild von etwas unbeschreibbaren", 2);
+			Item bild = new Item("Bild", "Ein Bild von etwas unbeschreibbarem", 2);
 
 			// Item_static
 
