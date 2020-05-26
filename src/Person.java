@@ -26,6 +26,7 @@ public abstract class Person {
 	public void pop_Inventory(Item_Usable i) {
 		inventory.remove(i);
 	}
+
 	public void push_Inventory(Item_Usable i) {
 		inventory.add(i);
 	}

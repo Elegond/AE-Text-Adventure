@@ -20,7 +20,9 @@ public class Main {
 		 * 
 		 */
 
-		/** -------------------------------------------------------------------------------------------- */
+		/**
+		 * --------------------------------------------------------------------------------------------
+		 */
 		Console console = System.console();
 		if (console == null && !GraphicsEnvironment.isHeadless()) {
 			String filename = Main.class.getProtectionDomain().getCodeSource().getLocation().toString().substring(6);
@@ -41,7 +43,9 @@ public class Main {
 			System.out.println("\n\nDanke fürs Spielen\n");
 		}
 
-		/** -------------------------------------------------------------------------------------------- */
+		/**
+		 * --------------------------------------------------------------------------------------------
+		 */
 		System.exit(0);
 
 	}
@@ -59,17 +63,17 @@ public class Main {
 
 				@Override
 				public void use(Item_Usable item) {
-					
+
 					if (item.getName().equalsIgnoreCase("Apfel")) {
-						System.out.println("Du hast ein "+item.getName()+" gegessen");
+						System.out.println("Du hast ein " + item.getName() + " gegessen");
 						if (Main.p.getHealth() < Main.p.getMaxHealth())
 							Main.p.setHealth(1);
 						if (Main.p.getStamina() < Main.p.getMaxStamina())
 							Main.p.setStamina(1);
 					} else if (item.getName().equalsIgnoreCase("Milch")) {
-						if (Main.p.getStamina() + 1 < Main.p.getMaxStamina()) 
+						if (Main.p.getStamina() + 1 < Main.p.getMaxStamina())
 							Main.p.setStamina(2);
-						System.out.println("Du hast eine "+item.getName()+" getrunken");
+						System.out.println("Du hast eine " + item.getName() + " getrunken");
 					}
 					p.getInventory().remove(item);
 				}
@@ -111,7 +115,8 @@ public class Main {
 			// Items
 			Item tv = new Item("Fernseher", "Samsung UE-RU7179 4K Smart TV", 50);
 			Item pizza = new Item("Pizza",
-					"3 Tage alte Lieferando Blumenkohlpizza mit Pesto, Zucchini und Rotkohl\nTötlich für Jedes Kind", 5);
+					"3 Tage alte Lieferando Blumenkohlpizza mit Pesto, Zucchini und Rotkohl\nTötlich für Jedes Kind",
+					5);
 			Item schuh = new Item("Schuh", "Alte durchgelaufene Schuhe mit Löchern", 3);
 			Item spielsachen = new Item("Spielsachen", "Meine Spielsachen. Spielen? Nein ich will Schokolade", 1);
 			Item bild = new Item("Bild", "Ein Bild von etwas unbeschreibbarem", 2);
@@ -290,7 +295,8 @@ public class Main {
 		p = new Player(name, geschlecht, InventarPlayer, (geschlecht ? 15 : 10), (geschlecht ? 10 : 15), 3,
 				Rooms.get(0));
 		System.out.println("Hallo " + p.getName());
-		System.out.println("Du bist zur Zeit im Kinderzimmer und willst unbedingt jetzt Schokolade essen. Aber Mama hat nein gesagt. Warum nur...\n\nFinde die Schokolade!\n");
+		System.out.println(
+				"Du bist zur Zeit im Kinderzimmer und willst unbedingt jetzt Schokolade essen. Aber Mama hat nein gesagt. Warum nur...\n\nFinde die Schokolade!\n");
 
 		game: while (true) {
 			System.out.println("Dein aktueller Aufenthalstort ist: " + p.getPosition().getRoomName());
@@ -508,7 +514,7 @@ public class Main {
 
 		}
 		s.close();
-		
+
 	}
 
 	public static void cls() {

@@ -52,7 +52,6 @@ public class Door {
 		}
 		if (locked)
 			unlock();
-		
 
 	}
 
@@ -78,22 +77,22 @@ public class Door {
 
 	public boolean enter() {
 		if (open) {
-			 for (Room r : Main.Rooms) {
+			for (Room r : Main.Rooms) {
 				for (Door d : r.getDoors()) {
-					if(d.equals(this)) {
-						if(this.getName().contains("treppe")) {
+					if (d.equals(this)) {
+						if (this.getName().contains("treppe")) {
 							Random rdn = new Random();
 							int i = rdn.nextInt(4);
-							if(i==2) {
+							if (i == 2) {
 								System.out.println("\n\nDu bist von der Treppe Gefallen\n\n");
 								Main.p.setHealth(-1);
 								Main.p.setPosition(Main.Rooms.get(1));
 								return true;
 							}
 						}
-						if(!Main.p.getPosition().equals(r)) {
+						if (!Main.p.getPosition().equals(r)) {
 							Main.p.setPosition(r);
-							System.out.println("Du hast den Raum "+r.getRoomName()+" betreten");
+							System.out.println("Du hast den Raum " + r.getRoomName() + " betreten");
 							return true;
 						}
 					}
@@ -103,7 +102,7 @@ public class Door {
 			System.out.println(
 					"Die " + (Main.p.getPosition().getRoomName().charAt(0) == name[0].charAt(0) ? name[1] : name[0])
 							+ " ist geschlossen");
-			
+
 		}
 		return false;
 

@@ -1,9 +1,9 @@
 import java.util.List;
 
-public class NPC extends Person{
+public class NPC extends Person {
 	private String[] texts;
-	
-	public NPC (String name, Boolean gender, List<Item_Usable> inventory, String[] texts) {
+
+	public NPC(String name, Boolean gender, List<Item_Usable> inventory, String[] texts) {
 		super(name, gender, inventory);
 		this.texts = texts;
 	}
@@ -11,5 +11,5 @@ public class NPC extends Person{
 	public String[] getTexts() {
 		return texts;
 	}
-	
+
 }
