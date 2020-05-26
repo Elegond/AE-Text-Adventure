@@ -91,7 +91,7 @@ public class Main {
 					foodInterface);
 			Item_Usable milch = new Item_Usable("Milch", "Fettarme Bio Milch vom Bauern nebenan\n+2 Ausdauer", 2, true,
 					foodInterface);
-			Item_Usable schokolade = new Item_Usable("Schokolade", "Feinste Hasch Schokolade\n-3Leben", 1, false,
+			Item_Usable schokolade = new Item_Usable("Schokolade", "Feinste Hasch-Schokolade\n-3Leben", 1, false,
 					schokoladenInterface);
 
 			// Keys
@@ -100,7 +100,7 @@ public class Main {
 			Item_Usable abstellkammerKey = new Item_Usable("Abstellkammerschlüssel",
 					"Der Schlüssel für die Abstellkammer", 1, false, noUseInt);
 			Item_Usable vorratskammerkey = new Item_Usable("Vorratskammerschlüssel",
-					"Der schlüssel für die Vorratskammer", 1, false, noUseInt);
+					"Der Schlüssel für die Vorratskammer", 1, false, noUseInt);
 
 			// Other
 			Item_Usable handy = new Item_Usable("Handy", "Apple iPhone XS Pro Plus von deiner Mama", 2, false,
@@ -111,10 +111,10 @@ public class Main {
 			// Items
 			Item tv = new Item("Fernseher", "Samsung UE-RU7179 4K Smart TV", 50);
 			Item pizza = new Item("Pizza",
-					"3 Tage alte Liferando Blumenkohlpizza mit Pesto, Zucchini und Rotkohl\nTötlich für Jedes Kind", 5);
+					"3 Tage alte Lieferando Blumenkohlpizza mit Pesto, Zucchini und Rotkohl\nTötlich für Jedes Kind", 5);
 			Item schuh = new Item("Schuh", "Alte durchgelaufene Schuhe mit Löchern", 3);
-			Item spielsachen = new Item("Spielsachen", "Benutzte Spielsachen", 1);
-			Item bild = new Item("Bild", "Ein Bild von etwas unbeschreibbaren", 2);
+			Item spielsachen = new Item("Spielsachen", "Meine Spielsachen. Spielen? Nein ich will Schokolade", 1);
+			Item bild = new Item("Bild", "Ein Bild von etwas unbeschreibbarem", 2);
 
 			// Item_static
 
@@ -125,7 +125,7 @@ public class Main {
 					new ArrayList<Item>(Arrays.asList(apfel)));
 			Item_Static telefontisch = new Item_Static("Telefontisch", "Ein Telefontisch", 25,
 					new ArrayList<Item>(Arrays.asList(
-							new Item("Taschentücher", "Eine Packung Taschentücher für den Personlichengebrauch", 1))));
+							new Item("Taschentücher", "Eine Packung Taschentücher für den persönlichen Gebrauch", 1))));
 
 			Item_Static küchenschrank = new Item_Static("Küchenschrank", "Ein Küchenschrank", 35,
 					new ArrayList<Item>(Arrays.asList(abstellkammerKey, handy)));
@@ -136,7 +136,7 @@ public class Main {
 			Item_Static couch = new Item_Static("Couch", "Eine unbequeme Couch", 80,
 					new ArrayList<Item>(Arrays.asList(pizza, geld)));
 			Item_Static wohnzimmerschrank = new Item_Static("Wohnzimmerschrank",
-					"Ein Wohnzimmerschrank\nGebaut mit Honduras Rosenholz das im östlichen Südamerika gefellt wurde",
+					"Ein Wohnzimmerschrank\nGebaut mit Honduras Rosenholz das im östlichen Südamerika gefällt wurde",
 					85, new ArrayList<Item>(Arrays.asList()));
 			Item_Static wohnzimmertisch = new Item_Static("Wohnzimmertisch",
 					"Ein Wohnzimmertisch\nEr hat 4 Beine, 4 Ecken und besteht aus Cocobolo Holz", 25,
@@ -290,7 +290,7 @@ public class Main {
 		p = new Player(name, geschlecht, InventarPlayer, (geschlecht ? 15 : 10), (geschlecht ? 10 : 15), 3,
 				Rooms.get(0));
 		System.out.println("Hallo " + p.getName());
-		System.out.println("Du bist zur Zeit im Kinderzimmer und willst Schokolade essen\n\nFinde die Schokolade!\n");
+		System.out.println("Du bist zur Zeit im Kinderzimmer und willst unbedingt jetzt Schokolade essen. Aber Mama hat nein gesagt. Warum nur...\n\nFinde die Schokolade!\n");
 
 		game: while (true) {
 			System.out.println("Dein aktueller Aufenthalstort ist: " + p.getPosition().getRoomName());
