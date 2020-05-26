@@ -100,7 +100,7 @@ public class Main {
 			Item_Usable abstellkammerKey = new Item_Usable("Abstellkammerschlüssel",
 					"Der Schlüssel für die Abstellkammer", 1, false, noUseInt);
 			Item_Usable vorratskammerkey = new Item_Usable("Vorratskammerschlüssel",
-					"Der schlüssel für die Vorratskammer", 1, false, noUseInt);
+					"Der Schlüssel für die Vorratskammer", 1, false, noUseInt);
 
 			// Other
 			Item_Usable handy = new Item_Usable("Handy", "Apple iPhone XS Pro Plus von deiner Mama", 2, false,
@@ -113,7 +113,7 @@ public class Main {
 			Item pizza = new Item("Pizza",
 					"3 Tage alte Lieferando Blumenkohlpizza mit Pesto, Zucchini und Rotkohl\nTötlich für Jedes Kind", 5);
 			Item schuh = new Item("Schuh", "Alte durchgelaufene Schuhe mit Löchern", 3);
-			Item spielsachen = new Item("Spielsachen", "Benutzte Spielsachen", 1);
+			Item spielsachen = new Item("Spielsachen", "Meine Spielsachen. Spielen? Nein ich will Schokolade", 1);
 			Item bild = new Item("Bild", "Ein Bild von etwas unbeschreibbarem", 2);
 
 			// Item_static
@@ -125,7 +125,7 @@ public class Main {
 					new ArrayList<Item>(Arrays.asList(apfel)));
 			Item_Static telefontisch = new Item_Static("Telefontisch", "Ein Telefontisch", 25,
 					new ArrayList<Item>(Arrays.asList(
-							new Item("Taschentücher", "Eine Packung Taschentücher für den Personlichengebrauch", 1))));
+							new Item("Taschentücher", "Eine Packung Taschentücher für den persönlichen Gebrauch", 1))));
 
 			Item_Static küchenschrank = new Item_Static("Küchenschrank", "Ein Küchenschrank", 35,
 					new ArrayList<Item>(Arrays.asList(abstellkammerKey, handy)));
