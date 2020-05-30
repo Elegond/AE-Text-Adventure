@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Door { // Klasse Tür mit Variablen
+public class Door { // Klasse Tür mit Variablen und überladenem Konstruktor
 	private String[] name = new String[2];
 	private String key;
 	private Boolean open;
