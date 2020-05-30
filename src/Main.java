@@ -115,7 +115,7 @@ public class Main {
 			// Items
 			Item tv = new Item("Fernseher", "Samsung UE-RU7179 4K Smart TV", 50);
 			Item pizza = new Item("Pizza",
-					"3 Tage alte Lieferando Blumenkohlpizza mit Pesto, Zucchini und Rotkohl\nTötlich für Jedes Kind",
+					"3 Tage alte Lieferando Blumenkohlpizza mit Pesto, Zucchini und Rotkohl\nTötlich für jedes Kind",
 					5);
 			Item schuh = new Item("Schuh", "Alte durchgelaufene Schuhe mit Löchern", 3);
 			Item spielsachen = new Item("Spielsachen", "Meine Spielsachen. Spielen? Nein ich will Schokolade", 1);
