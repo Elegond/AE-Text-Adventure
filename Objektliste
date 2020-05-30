@@ -35,4 +35,4 @@ Schlafzimmer
 -Bett(static, Inhalt: Bettwäsche(item), Arbeistzimmerschlüssel(usable))
 
 Arbeitszimmer
--Arbeitszimmerregal(static Inhalt: Vorratskammerschluessel(usable))
+-Arbeitszimmerregal(static Inhalt: Vorratskammerschlüssel(usable))
