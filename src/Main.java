@@ -76,6 +76,7 @@ public class Main {
 						System.out.println("Du hast eine " + item.getName() + " getrunken");
 					}
 					p.getInventory().remove(item);
+					p.setStrength(item.getWeight());
 				}
 			};
 			Item_Usable.usableInterface schokoladenInterface = new Item_Usable.usableInterface() {
@@ -258,7 +259,7 @@ public class Main {
 		Scanner s = new Scanner(System.in);
 		System.out.println("\n\n\n\n");
 		System.out.println("Willkommen zum Textadventure");
-		System.out.println("\n\n\n\nBeta 1.0");
+		System.out.println("\n\n\n\nBeta 1.0_1");
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e1) {
