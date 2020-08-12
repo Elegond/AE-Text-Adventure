@@ -1,16 +1,16 @@
 import java.util.List;
 
 public class Player extends Person {
-	private Integer stamina;
-	private Integer strength;
-	private Integer health;
-	private Integer maxStamina;
-	private Integer maxStrength;
-	private Integer maxHealth;
+	private int stamina;
+	private int strength;
+	private int health;
+	private int maxStamina;
+	private int maxStrength;
+	private int maxHealth;
 	private Room position;
 
-	public Player(String name, Boolean gender, List<Item_Usable> Item, Integer stamina, Integer strength,
-			Integer health, Room position) {
+	public Player(String name, Boolean gender, List<Item_Usable> Item, int stamina, int strength,
+			int health, Room position) {
 		super(name, gender, Item);
 		this.stamina = stamina;
 		this.strength = strength;
@@ -21,11 +21,11 @@ public class Player extends Person {
 		this.position = position;
 	}
 
-	public Integer getStamina() {
+	public int getStamina() {
 		return stamina;
 	}
 
-	public void setStamina(Integer stamina) {
+	public void setStamina(int stamina) {
 		if (this.stamina + stamina <= 0) {
 			System.out.println("Du bist Erschöpft\nDas ist Lebensgefährlich");
 			setHealth(-1);
@@ -34,19 +34,19 @@ public class Player extends Person {
 		this.stamina = this.stamina + stamina;
 	}
 
-	public Integer getStrength() {
+	public int getStrength() {
 		return strength;
 	}
 
-	public void setStrength(Integer strength) {
+	public void setStrength(int strength) {
 		this.strength = this.strength + strength;
 	}
 
-	public Integer getHealth() {
+	public int getHealth() {
 		return health;
 	}
 
-	public void setHealth(Integer health) {
+	public void setHealth(int health) {
 		if (this.health + health <= 0) {
 			this.health = 0;
 			System.out.println("\n\n\nGame Over\n\n");
@@ -63,15 +63,15 @@ public class Player extends Person {
 		position = r;
 	}
 
-	public Integer getMaxStamina() {
+	public int getMaxStamina() {
 		return maxStamina;
 	}
 
-	public Integer getMaxStrength() {
+	public int getMaxStrength() {
 		return maxStrength;
 	}
 
-	public Integer getMaxHealth() {
+	public int getMaxHealth() {
 		return maxHealth;
 	}
 

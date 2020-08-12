@@ -3,10 +3,10 @@ import java.util.Random;
 public class Door { // Klasse Tür mit Variablen und überladenem Konstruktor
 	private String[] name = new String[2];
 	private String key;
-	private Boolean open;
-	private Boolean locked;
+	private boolean open;
+	private boolean locked;
 			
-	public Door(String name0, String name1, String key, Boolean open, Boolean locked) { // Konstruktor Tür mit Schlüssel
+	public Door(String name0, String name1, String key, boolean open, boolean locked) { // Konstruktor Tür mit Schlüssel
 		this.name[0] = name0;
 		this.name[1] = name1;
 		this.key = key;
@@ -22,7 +22,7 @@ public class Door { // Klasse Tür mit Variablen und überladenem Konstruktor
 		this.locked = false;
 	}
 
-	public Door(String name0, String name1, Boolean open) { // Konstruktor Tür geöffnet
+	public Door(String name0, String name1, boolean open) { // Konstruktor Tür geöffnet
 		name[0] = name0;
 		name[1] = name1;
 		key = null;
@@ -38,7 +38,7 @@ public class Door { // Klasse Tür mit Variablen und überladenem Konstruktor
 		return key;
 	}
 
-	public Boolean getOpen() { // Getter für geöffnet | geschlossen
+	public boolean getOpen() { // Getter für geöffnet | geschlossen
 		return open;
 	}
 
@@ -55,7 +55,7 @@ public class Door { // Klasse Tür mit Variablen und überladenem Konstruktor
 
 	}
 
-	public Boolean getLocked() { // Getter für Den Zustand abgeschlossen | nicht abgeschlossen
+	public boolean getLocked() { // Getter für Den Zustand abgeschlossen | nicht abgeschlossen
 		return locked;
 	}
 
